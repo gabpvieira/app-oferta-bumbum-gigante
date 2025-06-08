@@ -10,8 +10,9 @@ import { Step5 } from '../components/funnel/Step5';
 import { Step6 } from '../components/funnel/Step6';
 import { Step7 } from '../components/funnel/Step7';
 import { Step8 } from '../components/funnel/Step8';
-import { Button } from '../components/ui/button';
+import { GameButton } from '../components/ui/game-button';
 import { ArrowLeft } from 'lucide-react';
+import { useFunnelNavigation } from '../hooks/useFunnelNavigation';
 
 const Funnel = () => {
   const {
@@ -22,6 +23,12 @@ const Funnel = () => {
     updateCompetenceScore,
     goToStep
   } = useFunnelLogic();
+
+  const { goPrevious } = useFunnelNavigation();
+
+  const handlePrevStep = () => {
+    goPrevious(funnelState.currentStep, prevStep);
+  };
 
   const renderStep = () => {
     switch (funnelState.currentStep) {
@@ -50,15 +57,16 @@ const Funnel = () => {
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">
         {funnelState.currentStep > 0 && (
-          <div className="mb-8">
-            <Button
+          <div className="mb-8 animate-fade-scale">
+            <GameButton
               variant="ghost"
-              onClick={prevStep}
-              className="flex items-center space-x-2"
+              onClick={handlePrevStep}
+              className="flex items-center space-x-2 hover:bg-muted"
+              soundType="click"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Voltar</span>
-            </Button>
+            </GameButton>
           </div>
         )}
         
@@ -67,7 +75,9 @@ const Funnel = () => {
           totalSteps={funnelState.totalSteps} 
         />
         
-        {renderStep()}
+        <div className="animate-slide-up">
+          {renderStep()}
+        </div>
       </div>
     </div>
   );
