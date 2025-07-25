@@ -320,7 +320,7 @@ export default function Dashboard() {
                 <div className="w-10 sm:w-12 h-10 sm:h-12 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-2xl flex items-center justify-center mr-3 sm:mr-4 shadow-lg">
                   <Trophy className="w-5 sm:w-6 h-5 sm:h-6 text-white" />
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-foreground">Suas Conquistas</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-foreground">Suas Conquistas 2.0</h3>
               </div>
               
               <div className="grid grid-cols-2 gap-4 sm:gap-6">
