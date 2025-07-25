@@ -56,16 +56,16 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen min-h-[100vh] min-h-[100dvh] relative overflow-hidden">
+    <div className="fixed inset-0 w-full h-full min-h-screen min-h-[100vh] min-h-[100dvh] overflow-auto">
       {/* Background with gradient */}
-      <div className="absolute inset-0 gradient-bg opacity-95"></div>
+      <div className="absolute inset-0 w-full h-full gradient-bg"></div>
       
       {/* Floating geometric shapes - responsive positioning */}
       <div className="absolute top-16 sm:top-20 left-4 sm:left-10 w-12 sm:w-20 h-12 sm:h-20 bg-white/20 rounded-full animate-bounce-soft"></div>
       <div className="absolute bottom-24 sm:bottom-32 right-6 sm:right-12 w-10 sm:w-16 h-10 sm:h-16 bg-accent/30 rounded-full animate-pulse"></div>
       <div className="absolute top-1/2 left-1/6 sm:left-1/4 w-8 sm:w-12 h-8 sm:h-12 bg-secondary/25 rounded-full animate-bounce-soft" style={{ animationDelay: '0.5s' }}></div>
       
-      <div className="relative z-10 min-h-screen min-h-[100vh] min-h-[100dvh] flex items-center justify-center mobile-container py-6 sm:py-8">
+      <div className="relative z-10 w-full h-full min-h-screen min-h-[100vh] min-h-[100dvh] flex items-center justify-center px-4 py-6 sm:py-8">
         <div className="w-full max-w-sm sm:max-w-md animate-slide-up">
           {/* Logo/Brand Section */}
           <div className="text-center mb-6 sm:mb-8">
