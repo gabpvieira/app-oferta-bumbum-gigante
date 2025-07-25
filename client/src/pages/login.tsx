@@ -88,47 +88,7 @@ export default function Login() {
                 Acesse Sua Área VIP
               </h2>
               
-              {/* Login Credentials Display */}
-              <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-3 sm:p-4 mb-4 sm:mb-6 border border-primary/20">
-                <h3 className="font-semibold text-foreground mb-2 sm:mb-3 flex items-center text-responsive-sm">
-                  <Key className="w-4 sm:w-5 h-4 sm:h-5 text-primary mr-2" />
-                  Seus Dados de Acesso:
-                </h3>
-                
-                <div className="space-y-2 sm:space-y-3">
-                  <div className="flex items-center justify-between bg-white rounded-lg p-2 sm:p-3">
-                    <div className="flex-1 min-w-0">
-                      <Label className="text-xs sm:text-sm text-muted-foreground">Email:</Label>
-                      <div className="font-medium text-foreground text-xs sm:text-sm truncate">
-                        {AUTH_CONFIG.validEmail}
-                      </div>
-                    </div>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={() => handleCopy(AUTH_CONFIG.validEmail, "Email")}
-                      className="text-primary hover:text-primary/80 mobile-button flex-shrink-0 ml-2"
-                    >
-                      <Copy className="w-3 sm:w-4 h-3 sm:h-4" />
-                    </Button>
-                  </div>
-                  
-                  <div className="flex items-center justify-between bg-white rounded-lg p-2 sm:p-3">
-                    <div className="flex-1 min-w-0">
-                      <Label className="text-xs sm:text-sm text-muted-foreground">Senha:</Label>
-                      <div className="font-medium text-foreground text-xs sm:text-sm">{AUTH_CONFIG.validPassword}</div>
-                    </div>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={() => handleCopy(AUTH_CONFIG.validPassword, "Senha")}
-                      className="text-primary hover:text-primary/80 mobile-button flex-shrink-0 ml-2"
-                    >
-                      <Copy className="w-3 sm:w-4 h-3 sm:h-4" />
-                    </Button>
-                  </div>
-                </div>
-              </div>
+              
               
               {/* Login Form Fields */}
               <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
