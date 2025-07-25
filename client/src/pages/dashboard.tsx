@@ -6,8 +6,8 @@ import { isLoggedIn, getCurrentUser, logout } from "@/lib/auth";
 import { initializeProgress, calculateProgress } from "@/lib/progress";
 import ProgressBar from "@/components/ProgressBar";
 import ModuleCard from "@/components/ModuleCard";
-import AchievementCard from "@/components/AchievementCard";
-import { Flame, LogOut, Trophy, Star, Headphones, MessageCircle, Users, Crown, Heart } from "lucide-react";
+
+import { Flame, LogOut, Trophy, Star, Headphones, MessageCircle, Users, Crown, Heart, Lock, UserPlus } from "lucide-react";
 
 const moduleData = [
   {
