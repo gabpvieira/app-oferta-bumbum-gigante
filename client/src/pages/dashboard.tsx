@@ -556,45 +556,50 @@ export default function Dashboard() {
         </Card>
 
         {/* Support Section */}
-        <Card className="animate-slide-up">
-          <CardContent className="p-6">
-            <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center">
-              <Headphones className="w-6 h-6 text-primary mr-3" />
+        <Card className="animate-slide-up glass-effect">
+          <CardContent className="p-4 sm:p-6">
+            <h3 className="text-responsive-xl font-semibold text-foreground mb-4 sm:mb-6 flex items-center">
+              <Headphones className="w-5 sm:w-6 h-5 sm:h-6 text-primary mr-2 sm:mr-3" />
               Suporte & Comunidade
             </h3>
             
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid gap-4 sm:grid-cols-2">
               <a 
                 href="https://wa.me/5584999389121?text=Olá! Preciso de ajuda com o Projeto Glúteo Gigante"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block"
+                className="block group"
               >
-                <Card className="bg-green-50 border-green-200 hover:bg-green-100 transition-colors cursor-pointer">
-                  <CardContent className="p-4">
+                <Card className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 border-green-200 dark:border-green-700 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 cursor-pointer touch-target">
+                  <CardContent className="p-4 sm:p-5">
                     <div className="flex items-center">
-                      <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mr-4">
-                        <MessageCircle className="w-6 h-6 text-white" />
+                      <div className="w-12 sm:w-14 h-12 sm:h-14 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mr-3 sm:mr-4 shadow-lg group-hover:shadow-xl transition-shadow">
+                        <MessageCircle className="w-6 sm:w-7 h-6 sm:h-7 text-white" />
                       </div>
-                      <div>
-                        <h4 className="font-semibold text-foreground">Suporte WhatsApp</h4>
-                        <p className="text-muted-foreground text-sm">Tire suas dúvidas diretamente conosco</p>
-                        <p className="text-green-600 text-xs font-medium mt-1">(84) 99938-9121</p>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-semibold text-foreground text-responsive-sm mb-1">Suporte WhatsApp</h4>
+                        <p className="text-muted-foreground text-xs sm:text-sm mb-2">Tire suas dúvidas diretamente conosco</p>
+                        <p className="text-green-600 dark:text-green-400 text-xs sm:text-sm font-medium bg-white dark:bg-green-900/30 px-2 py-1 rounded-lg inline-block">
+                          (84) 99938-9121
+                        </p>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
               </a>
               
-              <Card className="bg-blue-50 border-blue-200">
-                <CardContent className="p-4">
+              <Card className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 border-blue-200 dark:border-blue-700 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 touch-target">
+                <CardContent className="p-4 sm:p-5">
                   <div className="flex items-center">
-                    <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mr-4">
-                      <Users className="w-6 h-6 text-white" />
+                    <div className="w-12 sm:w-14 h-12 sm:h-14 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mr-3 sm:mr-4 shadow-lg">
+                      <Users className="w-6 sm:w-7 h-6 sm:h-7 text-white" />
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-foreground">Comunidade VIP</h4>
-                      <p className="text-muted-foreground text-sm">Conecte-se com outras mulheres</p>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-semibold text-foreground text-responsive-sm mb-1">Comunidade VIP</h4>
+                      <p className="text-muted-foreground text-xs sm:text-sm mb-2">Conecte-se com outras mulheres</p>
+                      <span className="text-blue-600 dark:text-blue-400 text-xs sm:text-sm font-medium bg-white dark:bg-blue-900/30 px-2 py-1 rounded-lg inline-block">
+                        Em breve
+                      </span>
                     </div>
                   </div>
                 </CardContent>
@@ -604,58 +609,60 @@ export default function Dashboard() {
         </Card>
 
         {/* Testimonials */}
-        <section className="bg-gradient-to-r from-secondary/5 to-accent/5 rounded-2xl p-6 animate-slide-up">
-          <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center justify-center">
-            <Star className="w-6 h-6 text-accent mr-3" />
-            Resultados de Nossos Membros
-          </h3>
-          
-          <div className="grid md:grid-cols-2 gap-6">
-            <Card>
-              <CardContent className="p-4">
-                <div className="flex items-center mb-3">
-                  <div className="w-10 h-10 bg-secondary rounded-full flex items-center justify-center mr-3">
-                    <span className="text-white font-semibold">M</span>
-                  </div>
-                  <div>
-                    <h5 className="font-semibold text-foreground">Maria S.</h5>
-                    <div className="flex text-accent text-sm">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3 h-3 fill-current" />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                <p className="text-muted-foreground text-sm">
-                  "Em apenas 2 semanas já notei diferença! Os exercícios são simples mas muito eficazes. 
-                  Recomendo para todas as amigas!"
-                </p>
-              </CardContent>
-            </Card>
+        <Card className="glass-effect animate-slide-up overflow-hidden">
+          <div className="bg-gradient-to-r from-secondary/10 to-accent/10 p-4 sm:p-6">
+            <h3 className="text-responsive-xl font-semibold text-foreground mb-4 sm:mb-6 flex items-center justify-center">
+              <Star className="w-5 sm:w-6 h-5 sm:h-6 text-accent mr-2 sm:mr-3" />
+              Resultados de Nossos Membros
+            </h3>
             
-            <Card>
-              <CardContent className="p-4">
-                <div className="flex items-center mb-3">
-                  <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center mr-3">
-                    <span className="text-white font-semibold">A</span>
-                  </div>
-                  <div>
-                    <h5 className="font-semibold text-foreground">Ana L.</h5>
-                    <div className="flex text-accent text-sm">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3 h-3 fill-current" />
-                      ))}
+            <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
+              <Card className="glass-effect hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
+                <CardContent className="p-4 sm:p-5">
+                  <div className="flex items-center mb-3 sm:mb-4">
+                    <div className="w-12 sm:w-14 h-12 sm:h-14 bg-gradient-to-r from-secondary to-secondary/80 rounded-2xl flex items-center justify-center mr-3 sm:mr-4 shadow-lg">
+                      <span className="text-white font-bold text-responsive-sm">M</span>
+                    </div>
+                    <div className="flex-1">
+                      <h5 className="font-semibold text-foreground text-responsive-sm mb-1">Maria S.</h5>
+                      <div className="flex text-accent">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-3 sm:w-4 h-3 sm:h-4 fill-current" />
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
-                <p className="text-muted-foreground text-sm">
-                  "O método é incrível! Consegui resultados que nunca imaginei em casa. 
-                  Minha autoestima melhorou muito!"
-                </p>
-              </CardContent>
-            </Card>
+                  <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
+                    "Em apenas 2 semanas já notei diferença! Os exercícios são simples mas muito eficazes. 
+                    Recomendo para todas as amigas!"
+                  </p>
+                </CardContent>
+              </Card>
+              
+              <Card className="glass-effect hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
+                <CardContent className="p-4 sm:p-5">
+                  <div className="flex items-center mb-3 sm:mb-4">
+                    <div className="w-12 sm:w-14 h-12 sm:h-14 bg-gradient-to-r from-primary to-primary/80 rounded-2xl flex items-center justify-center mr-3 sm:mr-4 shadow-lg">
+                      <span className="text-white font-bold text-responsive-sm">A</span>
+                    </div>
+                    <div className="flex-1">
+                      <h5 className="font-semibold text-foreground text-responsive-sm mb-1">Ana L.</h5>
+                      <div className="flex text-accent">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-3 sm:w-4 h-3 sm:h-4 fill-current" />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
+                    "O método é incrível! Consegui resultados que nunca imaginei em casa. 
+                    Minha autoestima melhorou muito!"
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
-        </section>
+        </Card>
       </main>
     </div>
   );
