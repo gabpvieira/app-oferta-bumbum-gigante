@@ -312,64 +312,91 @@ export default function Dashboard() {
           </div>
         </section>
 
-        {/* Achievement Section */}
-        <Card className="animate-slide-up glass-effect overflow-hidden">
-          <CardContent className="p-4 sm:p-6">
-            <h3 className="text-responsive-xl font-semibold text-foreground mb-4 sm:mb-6 flex items-center">
-              <Trophy className="w-5 sm:w-6 h-5 sm:h-6 text-accent mr-2 sm:mr-3" />
-              Suas Conquistas
-            </h3>
-            
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              {/* Achievement 1 - Primeiro Acesso (Unlocked) */}
-              <Card className="bg-gradient-to-br from-green-500 to-green-600 text-white hover:shadow-xl transition-all duration-300 hover:scale-[1.02] touch-target">
-                <CardContent className="p-4 sm:p-6 text-center">
-                  <div className="w-12 sm:w-16 h-12 sm:h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                    <UserPlus className="w-6 sm:w-8 h-6 sm:h-8 text-white" />
-                  </div>
-                  <h4 className="font-bold text-responsive-sm mb-1 sm:mb-2">Conquistado!</h4>
-                  <p className="text-white/90 text-xs sm:text-sm font-medium">Primeiro Acesso</p>
-                </CardContent>
-              </Card>
+        {/* Achievement Section v2.0 - Modern Design */}
+        <div className="animate-slide-up">
+          <Card className="glass-effect border-0 shadow-xl overflow-hidden bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg">
+            <CardContent className="p-6 sm:p-8">
+              <div className="flex items-center mb-6 sm:mb-8">
+                <div className="w-10 sm:w-12 h-10 sm:h-12 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-2xl flex items-center justify-center mr-3 sm:mr-4 shadow-lg">
+                  <Trophy className="w-5 sm:w-6 h-5 sm:h-6 text-white" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-foreground">Suas Conquistas</h3>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-4 sm:gap-6">
+                {/* Achievement 1 - Conquistado (Featured) */}
+                <div className="col-span-1 row-span-2">
+                  <Card className="h-full bg-gradient-to-br from-emerald-500 via-green-500 to-teal-600 text-white shadow-2xl hover:shadow-emerald-500/25 transition-all duration-500 hover:scale-[1.02] border-0 overflow-hidden group">
+                    <CardContent className="p-6 sm:p-8 text-center h-full flex flex-col justify-center relative">
+                      {/* Background Pattern */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
+                      <div className="absolute top-4 right-4 w-20 h-20 bg-white/5 rounded-full -translate-y-10 translate-x-10"></div>
+                      <div className="absolute bottom-4 left-4 w-16 h-16 bg-white/5 rounded-full translate-y-8 -translate-x-8"></div>
+                      
+                      <div className="relative z-10">
+                        <div className="w-16 sm:w-20 h-16 sm:h-20 bg-white/20 rounded-3xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
+                          <UserPlus className="w-8 sm:w-10 h-8 sm:h-10 text-white" />
+                        </div>
+                        <div className="space-y-2">
+                          <h4 className="text-lg sm:text-xl font-bold">Conquistado!</h4>
+                          <p className="text-white/90 text-sm sm:text-base font-medium">Primeiro Acesso</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
 
-              {/* Achievement 2 - Primeira Semana (Locked) */}
-              <Card className="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 hover:shadow-lg transition-all duration-300 hover:scale-[1.02] touch-target">
-                <CardContent className="p-4 sm:p-6 text-center">
-                  <div className="w-12 sm:w-16 h-12 sm:h-16 bg-gray-300 dark:bg-gray-600 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                    <Lock className="w-6 sm:w-8 h-6 sm:h-8 text-gray-500 dark:text-gray-400" />
-                  </div>
-                  <h4 className="font-bold text-responsive-sm mb-1 sm:mb-2 text-gray-700 dark:text-gray-300">Primeira</h4>
-                  <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm">Semana</p>
-                  <p className="text-gray-500 dark:text-gray-500 text-xs mt-1">Em breve...</p>
-                </CardContent>
-              </Card>
+                {/* Achievement 2 - Primeira Semana */}
+                <Card className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 hover:shadow-lg transition-all duration-300 hover:scale-[1.02] border border-gray-200 dark:border-gray-700 group">
+                  <CardContent className="p-4 sm:p-6 text-center h-full flex flex-col justify-center">
+                    <div className="w-12 sm:w-14 h-12 sm:h-14 bg-gradient-to-r from-gray-300 to-gray-400 dark:from-gray-600 dark:to-gray-700 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <Lock className="w-6 sm:w-7 h-6 sm:h-7 text-gray-500 dark:text-gray-400" />
+                    </div>
+                    <div className="space-y-1">
+                      <h4 className="font-bold text-sm sm:text-base text-gray-700 dark:text-gray-300">Primeira</h4>
+                      <p className="font-bold text-sm sm:text-base text-gray-700 dark:text-gray-300">Semana</p>
+                      <p className="text-gray-500 dark:text-gray-500 text-xs sm:text-sm">Em breve...</p>
+                    </div>
+                  </CardContent>
+                </Card>
 
-              {/* Achievement 3 - 15 Dias (Locked) */}
-              <Card className="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 hover:shadow-lg transition-all duration-300 hover:scale-[1.02] touch-target">
-                <CardContent className="p-4 sm:p-6 text-center">
-                  <div className="w-12 sm:w-16 h-12 sm:h-16 bg-gray-300 dark:bg-gray-600 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                    <Lock className="w-6 sm:w-8 h-6 sm:h-8 text-gray-500 dark:text-gray-400" />
-                  </div>
-                  <h4 className="font-bold text-responsive-sm mb-1 sm:mb-2 text-gray-700 dark:text-gray-300">15 Dias</h4>
-                  <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm">Meta de meio</p>
-                  <p className="text-gray-600 dark:text-gray-400 text-xs">mês</p>
-                </CardContent>
-              </Card>
+                {/* Achievement 3 - 15 Dias */}
+                <Card className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 hover:shadow-lg transition-all duration-300 hover:scale-[1.02] border border-gray-200 dark:border-gray-700 group">
+                  <CardContent className="p-4 sm:p-6 text-center h-full flex flex-col justify-center">
+                    <div className="w-12 sm:w-14 h-12 sm:h-14 bg-gradient-to-r from-gray-300 to-gray-400 dark:from-gray-600 dark:to-gray-700 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <Lock className="w-6 sm:w-7 h-6 sm:h-7 text-gray-500 dark:text-gray-400" />
+                    </div>
+                    <div className="space-y-1">
+                      <h4 className="font-bold text-sm sm:text-base text-gray-700 dark:text-gray-300">15 Dias</h4>
+                      <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm">Meta de meio</p>
+                      <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm">mês</p>
+                    </div>
+                  </CardContent>
+                </Card>
 
-              {/* Achievement 4 - 30 Dias (Locked) */}
-              <Card className="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 hover:shadow-lg transition-all duration-300 hover:scale-[1.02] touch-target">
-                <CardContent className="p-4 sm:p-6 text-center">
-                  <div className="w-12 sm:w-16 h-12 sm:h-16 bg-gray-300 dark:bg-gray-600 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                    <Lock className="w-6 sm:w-8 h-6 sm:h-8 text-gray-500 dark:text-gray-400" />
-                  </div>
-                  <h4 className="font-bold text-responsive-sm mb-1 sm:mb-2 text-gray-700 dark:text-gray-300">30 Dias</h4>
-                  <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm">Transformação</p>
-                  <p className="text-gray-600 dark:text-gray-400 text-xs">completa</p>
-                </CardContent>
-              </Card>
-            </div>
-          </CardContent>
-        </Card>
+                {/* Achievement 4 - 30 Dias */}
+                <div className="col-span-2">
+                  <Card className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 hover:shadow-lg transition-all duration-300 hover:scale-[1.01] border border-gray-200 dark:border-gray-700 group">
+                    <CardContent className="p-4 sm:p-6 flex items-center">
+                      <div className="w-14 sm:w-16 h-14 sm:h-16 bg-gradient-to-r from-gray-300 to-gray-400 dark:from-gray-600 dark:to-gray-700 rounded-2xl flex items-center justify-center mr-4 sm:mr-6 group-hover:scale-110 transition-transform duration-300">
+                        <Crown className="w-7 sm:w-8 h-7 sm:h-8 text-gray-500 dark:text-gray-400" />
+                      </div>
+                      <div className="flex-1 text-left">
+                        <h4 className="font-bold text-base sm:text-lg text-gray-700 dark:text-gray-300 mb-1">30 Dias</h4>
+                        <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">Transformação completa</p>
+                      </div>
+                      <div className="text-right">
+                        <div className="w-6 h-6 bg-gray-300 dark:bg-gray-600 rounded-full flex items-center justify-center">
+                          <Lock className="w-3 h-3 text-gray-500 dark:text-gray-400" />
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
 
         {/* Premium Modules */}
         <Card className="animate-slide-up">
