@@ -313,17 +313,60 @@ export default function Dashboard() {
         </section>
 
         {/* Achievement Section */}
-        <Card className="animate-slide-up mobile-card">
+        <Card className="animate-slide-up glass-effect overflow-hidden">
           <CardContent className="p-4 sm:p-6">
-            <h3 className="text-responsive-lg font-semibold text-foreground mb-3 sm:mb-4 flex items-center">
+            <h3 className="text-responsive-xl font-semibold text-foreground mb-4 sm:mb-6 flex items-center">
               <Trophy className="w-5 sm:w-6 h-5 sm:h-6 text-accent mr-2 sm:mr-3" />
               Suas Conquistas
             </h3>
             
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-              {achievements.map((achievement) => (
-                <AchievementCard key={achievement.id} achievement={achievement} />
-              ))}
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              {/* Achievement 1 - Primeiro Acesso (Unlocked) */}
+              <Card className="bg-gradient-to-br from-green-500 to-green-600 text-white hover:shadow-xl transition-all duration-300 hover:scale-[1.02] touch-target">
+                <CardContent className="p-4 sm:p-6 text-center">
+                  <div className="w-12 sm:w-16 h-12 sm:h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <UserPlus className="w-6 sm:w-8 h-6 sm:h-8 text-white" />
+                  </div>
+                  <h4 className="font-bold text-responsive-sm mb-1 sm:mb-2">Conquistado!</h4>
+                  <p className="text-white/90 text-xs sm:text-sm font-medium">Primeiro Acesso</p>
+                </CardContent>
+              </Card>
+
+              {/* Achievement 2 - Primeira Semana (Locked) */}
+              <Card className="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 hover:shadow-lg transition-all duration-300 hover:scale-[1.02] touch-target">
+                <CardContent className="p-4 sm:p-6 text-center">
+                  <div className="w-12 sm:w-16 h-12 sm:h-16 bg-gray-300 dark:bg-gray-600 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <Lock className="w-6 sm:w-8 h-6 sm:h-8 text-gray-500 dark:text-gray-400" />
+                  </div>
+                  <h4 className="font-bold text-responsive-sm mb-1 sm:mb-2 text-gray-700 dark:text-gray-300">Primeira</h4>
+                  <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm">Semana</p>
+                  <p className="text-gray-500 dark:text-gray-500 text-xs mt-1">Em breve...</p>
+                </CardContent>
+              </Card>
+
+              {/* Achievement 3 - 15 Dias (Locked) */}
+              <Card className="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 hover:shadow-lg transition-all duration-300 hover:scale-[1.02] touch-target">
+                <CardContent className="p-4 sm:p-6 text-center">
+                  <div className="w-12 sm:w-16 h-12 sm:h-16 bg-gray-300 dark:bg-gray-600 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <Lock className="w-6 sm:w-8 h-6 sm:h-8 text-gray-500 dark:text-gray-400" />
+                  </div>
+                  <h4 className="font-bold text-responsive-sm mb-1 sm:mb-2 text-gray-700 dark:text-gray-300">15 Dias</h4>
+                  <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm">Meta de meio</p>
+                  <p className="text-gray-600 dark:text-gray-400 text-xs">mês</p>
+                </CardContent>
+              </Card>
+
+              {/* Achievement 4 - 30 Dias (Locked) */}
+              <Card className="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 hover:shadow-lg transition-all duration-300 hover:scale-[1.02] touch-target">
+                <CardContent className="p-4 sm:p-6 text-center">
+                  <div className="w-12 sm:w-16 h-12 sm:h-16 bg-gray-300 dark:bg-gray-600 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <Lock className="w-6 sm:w-8 h-6 sm:h-8 text-gray-500 dark:text-gray-400" />
+                  </div>
+                  <h4 className="font-bold text-responsive-sm mb-1 sm:mb-2 text-gray-700 dark:text-gray-300">30 Dias</h4>
+                  <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm">Transformação</p>
+                  <p className="text-gray-600 dark:text-gray-400 text-xs">completa</p>
+                </CardContent>
+              </Card>
             </div>
           </CardContent>
         </Card>
