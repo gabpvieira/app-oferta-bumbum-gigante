@@ -1,18 +1,137 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>Projeto Glúteo Gigante™ - Área de Membros</title>
-    <meta name="description" content="Transforme seu bumbum em 30 dias com o método premium Projeto Glúteo Gigante™">
+    <!-- Viewport otimizada para mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+    
+    <!-- SEO e Meta Tags -->
+    <title>Projeto Glúteo Gigante™ - Transformação em 30 Dias | Área de Membros</title>
+    <meta name="description" content="Acesse sua área de membros exclusiva do Projeto Glúteo Gigante™. Transforme seu corpo em 30 dias com treinos específicos, dieta personalizada e conteúdo premium." />
+    <meta name="keywords" content="glúteo, bumbum, transformação, treino, dieta, fitness, 30 dias, premium, membros" />
+    <meta name="author" content="Projeto Glúteo Gigante™" />
+    <meta name="robots" content="noindex, nofollow" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://projetogluteogigante.com/" />
+    <meta property="og:title" content="Projeto Glúteo Gigante™ - Transformação em 30 Dias" />
+    <meta property="og:description" content="Acesse sua área de membros exclusiva e transforme seu corpo em 30 dias com nosso método premium." />
+    <meta property="og:site_name" content="Projeto Glúteo Gigante™" />
+    <meta property="og:locale" content="pt_BR" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://projetogluteogigante.com/" />
+    <meta property="twitter:title" content="Projeto Glúteo Gigante™ - Transformação em 30 Dias" />
+    <meta property="twitter:description" content="Acesse sua área de membros exclusiva e transforme seu corpo em 30 dias." />
+    
+    <!-- Mobile Web App -->
+    <meta name="theme-color" content="#ff6f61" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Glúteo Gigante™" />
+    <meta name="msapplication-TileColor" content="#ff6f61" />
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style" />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" />
+    
+    <!-- Favicon e Icons -->
     <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- DNS Prefetch para performance -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js')
+            .then(function(registration) {
+              console.log('SW registered: ', registration);
+              
+              // Check for updates
+              registration.addEventListener('updatefound', () => {
+                const newWorker = registration.installing;
+                newWorker.addEventListener('statechange', () => {
+                  if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                    // New content available, prompt user to refresh
+                    if (confirm('Nova versão disponível! Deseja atualizar?')) {
+                      window.location.reload();
+                    }
+                  }
+                });
+              });
+            })
+            .catch(function(registrationError) {
+              console.log('SW registration failed: ', registrationError);
+            });
+        });
+      }
+
+      // Handle install prompt
+      let deferredPrompt;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        
+        // Show custom install button/banner
+        const installBanner = document.createElement('div');
+        installBanner.innerHTML = `
+          <div style="position: fixed; top: 0; left: 0; right: 0; background: #ff6f61; color: white; padding: 10px; text-align: center; z-index: 10000;">
+            <span>Instalar Projeto Glúteo Gigante™ no seu dispositivo?</span>
+            <button onclick="installApp()" style="margin-left: 10px; background: white; color: #ff6f61; border: none; padding: 5px 15px; border-radius: 5px; cursor: pointer;">Instalar</button>
+            <button onclick="dismissInstall()" style="margin-left: 5px; background: transparent; color: white; border: 1px solid white; padding: 5px 15px; border-radius: 5px; cursor: pointer;">Depois</button>
+          </div>
+        `;
+        document.body.appendChild(installBanner);
+      });
+
+      function installApp() {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+              console.log('PWA installed');
+            }
+            deferredPrompt = null;
+            dismissInstall();
+          });
+        }
+      }
+
+      function dismissInstall() {
+        const banner = document.querySelector('div[style*="position: fixed"]');
+        if (banner) {
+          banner.remove();
+        }
+      }
+
+      // Track app install
+      window.addEventListener('appinstalled', (evt) => {
+        console.log('PWA was installed');
+        // Track installation in analytics if needed
+      });
+    </script>
+    
     <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
     <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
   </body>

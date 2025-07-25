@@ -80,28 +80,28 @@ export default function ModuleCard({ module, onProgressUpdate }: ModuleCardProps
   };
 
   return (
-    <div className="module-card border border-border rounded-xl overflow-hidden">
+    <div className="module-card border border-border rounded-xl overflow-hidden mobile-card">
       <div 
-        className="module-header bg-muted/50 p-4 cursor-pointer" 
+        className="module-header bg-muted/50 p-3 sm:p-4 cursor-pointer touch-target" 
         onClick={() => setIsExpanded(!isExpanded)}
       >
         <div className="flex items-center justify-between">
-          <div className="flex items-center flex-1">
-            <div className={`w-12 h-12 ${module.iconBg} rounded-full flex items-center justify-center mr-4`}>
-              <i className={`fas ${module.icon} text-white`}></i>
+          <div className="flex items-center flex-1 min-w-0">
+            <div className={`w-10 sm:w-12 h-10 sm:h-12 ${module.iconBg} rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0`}>
+              <i className={`fas ${module.icon} text-white text-sm sm:text-base`}></i>
             </div>
-            <div className="flex-1">
-              <h4 className="font-semibold text-foreground">{module.title}</h4>
-              <p className="text-muted-foreground text-sm">{module.description}</p>
+            <div className="flex-1 min-w-0">
+              <h4 className="font-semibold text-foreground text-responsive-sm truncate">{module.title}</h4>
+              <p className="text-muted-foreground text-xs sm:text-sm leading-tight">{module.description}</p>
               <div className="flex items-center mt-1">
-                <Clock className="w-4 h-4 text-accent mr-2" />
-                <span className="text-muted-foreground text-sm">{module.duration}</span>
+                <Clock className="w-3 sm:w-4 h-3 sm:h-4 text-accent mr-1 sm:mr-2 flex-shrink-0" />
+                <span className="text-muted-foreground text-xs sm:text-sm">{module.duration}</span>
               </div>
             </div>
           </div>
-          <Button variant="ghost" size="sm">
+          <Button variant="ghost" size="sm" className="mobile-button flex-shrink-0">
             <ChevronDown 
-              className={`w-5 h-5 text-muted-foreground transition-transform duration-300 ${
+              className={`w-4 sm:w-5 h-4 sm:h-5 text-muted-foreground transition-transform duration-300 ${
                 isExpanded ? 'rotate-180' : ''
               }`} 
             />
@@ -109,14 +109,14 @@ export default function ModuleCard({ module, onProgressUpdate }: ModuleCardProps
         </div>
       </div>
       
-      <div className={`module-content ${isExpanded ? 'expanded' : ''}`}>
-        <div className="p-6 space-y-6">
-          <div className="lesson-intro bg-primary/5 rounded-xl p-4">
-            <h5 className="font-semibold text-foreground mb-2 flex items-center">
-              <Target className="w-5 h-5 text-primary mr-2" />
+      <div className={`module-content ${isExpanded ? 'expanded' : ''} mobile-scroll`}>
+        <div className="p-4 sm:p-6 space-y-4 sm:space-y-6">
+          <div className="lesson-intro bg-primary/5 rounded-xl p-3 sm:p-4">
+            <h5 className="font-semibold text-foreground mb-2 flex items-center text-responsive-sm">
+              <Target className="w-4 sm:w-5 h-4 sm:h-5 text-primary mr-2" />
               O que você vai aprender:
             </h5>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-responsive-sm">
               {module.lessons.length > 0 && module.lessons[0].description}
             </p>
           </div>

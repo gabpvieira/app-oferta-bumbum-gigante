@@ -60,9 +60,41 @@
     @apply border-border;
   }
 
+  html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
   body {
     @apply font-sans antialiased bg-background text-foreground;
     font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overscroll-behavior: none;
+    touch-action: manipulation;
+  }
+
+  /* Responsive font scaling */
+  @media (max-width: 320px) {
+    html { font-size: 14px; }
+  }
+  
+  @media (min-width: 768px) {
+    html { font-size: 16px; }
+  }
+  
+  @media (min-width: 1024px) {
+    html { font-size: 18px; }
+  }
+
+  /* Safe areas para notch devices */
+  @supports (padding: max(0px)) {
+    body {
+      padding-left: max(12px, env(safe-area-inset-left));
+      padding-right: max(12px, env(safe-area-inset-right));
+    }
   }
 }
 
@@ -74,6 +106,7 @@
   .glass-effect {
     backdrop-filter: blur(10px);
     background: rgba(255, 255, 255, 0.95);
+    -webkit-backdrop-filter: blur(10px);
   }
   
   .module-content {
@@ -93,6 +126,60 @@
   .achievement-card.locked {
     @apply bg-gray-100 border-gray-200 opacity-60;
   }
+
+  /* Mobile-optimized containers */
+  .mobile-container {
+    @apply w-full max-w-full px-4 sm:px-6 lg:px-8;
+  }
+
+  .mobile-card {
+    @apply rounded-lg shadow-sm border border-border;
+    min-height: 44px; /* Apple recommended touch target */
+    border-color: hsl(var(--border) / 0.5);
+  }
+
+  .mobile-button {
+    @apply min-h-[44px] min-w-[44px] touch-manipulation select-none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .mobile-scroll {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  /* Responsive text sizing */
+  .text-responsive-xs { @apply text-xs sm:text-sm; }
+  .text-responsive-sm { @apply text-sm sm:text-base; }
+  .text-responsive-base { @apply text-base sm:text-lg; }
+  .text-responsive-lg { @apply text-lg sm:text-xl; }
+  .text-responsive-xl { @apply text-xl sm:text-2xl; }
+  .text-responsive-2xl { @apply text-2xl sm:text-3xl; }
+  .text-responsive-3xl { @apply text-3xl sm:text-4xl; }
+
+  /* Mobile navigation */
+  .mobile-nav {
+    @apply fixed bottom-0 left-0 right-0 z-50;
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+  }
+
+  /* Improved touch targets */
+  .touch-target {
+    @apply relative;
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .touch-target::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
 }
 
 @layer utilities {
@@ -110,6 +197,32 @@
   
   .animate-bounce-soft {
     animation: bounceSoft 0.8s ease-out;
+  }
+
+  /* Mobile-specific utilities */
+  .mobile-only { @apply block sm:hidden; }
+  .desktop-only { @apply hidden sm:block; }
+  .mobile-grid { @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4; }
+  
+  /* Performance optimizations */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+  }
+
+  /* Landscape orientation optimizations */
+  @media screen and (orientation: landscape) and (max-height: 500px) {
+    .landscape-compact {
+      padding-top: 0.5rem !important;
+      padding-bottom: 0.5rem !important;
+    }
+    
+    .landscape-small-text {
+      font-size: 0.875rem !important;
+    }
   }
 }
 

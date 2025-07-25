@@ -1,0 +1,10 @@
+<svg width="192" height="192" viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="96" cy="96" r="96" fill="#ff6f61"/>
+  
+  <!-- Flame Icon -->
+  <path d="M96 40c-8 0-16 4-20 12-8 16-12 28-12 44 0 20 16 36 36 36s36-16 36-36c0-16-4-28-12-44-4-8-12-12-20-12h-8zm0 20c4 0 8 2 10 6 4 8 6 14 6 22 0 10-8 18-18 18s-18-8-18-18c0-8 2-14 6-22 2-4 6-6 10-6h4z" fill="white"/>
+  
+  <!-- Accent Detail -->
+  <circle cx="96" cy="80" r="8" fill="#ffd93d" opacity="0.8"/>
+</svg>

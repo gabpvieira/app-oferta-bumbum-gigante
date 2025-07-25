@@ -1,0 +1,64 @@
+{
+  "name": "Projeto Glúteo Gigante™ - Área de Membros",
+  "short_name": "Glúteo Gigante™",
+  "description": "Transforme seu corpo em 30 dias com o método premium Projeto Glúteo Gigante™",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ff6f61",
+  "theme_color": "#ff6f61",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/icon-logo.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-logo.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-logo.svg",
+      "sizes": "180x180",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["health", "fitness", "lifestyle"],
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "short_name": "Dashboard",
+      "description": "Acesse seu painel principal",
+      "url": "/dashboard",
+      "icons": [{"src": "/icon-192x192.png", "sizes": "192x192"}]
+    },
+    {
+      "name": "Módulos",
+      "short_name": "Módulos",
+      "description": "Acesse os módulos de treino",
+      "url": "/dashboard#modules",
+      "icons": [{"src": "/icon-192x192.png", "sizes": "192x192"}]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-mobile.png",
+      "sizes": "375x812",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/screenshot-desktop.png", 
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "prefer_related_applications": false
+}

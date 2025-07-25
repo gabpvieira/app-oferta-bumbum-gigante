@@ -56,50 +56,50 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen min-h-[100vh] min-h-[100dvh] relative overflow-hidden">
       {/* Background with gradient */}
       <div className="absolute inset-0 gradient-bg opacity-95"></div>
       
-      {/* Floating geometric shapes */}
-      <div className="absolute top-20 left-10 w-20 h-20 bg-white/20 rounded-full animate-bounce-soft"></div>
-      <div className="absolute bottom-32 right-12 w-16 h-16 bg-accent/30 rounded-full animate-pulse"></div>
-      <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-secondary/25 rounded-full animate-bounce-soft" style={{ animationDelay: '0.5s' }}></div>
+      {/* Floating geometric shapes - responsive positioning */}
+      <div className="absolute top-16 sm:top-20 left-4 sm:left-10 w-12 sm:w-20 h-12 sm:h-20 bg-white/20 rounded-full animate-bounce-soft"></div>
+      <div className="absolute bottom-24 sm:bottom-32 right-6 sm:right-12 w-10 sm:w-16 h-10 sm:h-16 bg-accent/30 rounded-full animate-pulse"></div>
+      <div className="absolute top-1/2 left-1/6 sm:left-1/4 w-8 sm:w-12 h-8 sm:h-12 bg-secondary/25 rounded-full animate-bounce-soft" style={{ animationDelay: '0.5s' }}></div>
       
-      <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
-        <div className="w-full max-w-md animate-slide-up">
+      <div className="relative z-10 min-h-screen min-h-[100vh] min-h-[100dvh] flex items-center justify-center mobile-container py-6 sm:py-8">
+        <div className="w-full max-w-sm sm:max-w-md animate-slide-up">
           {/* Logo/Brand Section */}
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-full mb-4 shadow-lg">
-              <Flame className="w-8 h-8 text-primary" />
+          <div className="text-center mb-6 sm:mb-8">
+            <div className="inline-flex items-center justify-center w-16 sm:w-20 h-16 sm:h-20 bg-white rounded-full mb-3 sm:mb-4 shadow-lg">
+              <Flame className="w-6 sm:w-8 h-6 sm:h-8 text-primary" />
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
+            <h1 className="text-responsive-2xl font-bold text-white mb-2">
               Projeto Glúteo Gigante™
             </h1>
-            <p className="text-white/90 text-lg">
+            <p className="text-white/90 text-responsive-base">
               Sua jornada para o bumbum dos sonhos
             </p>
           </div>
           
           {/* Login Form */}
-          <Card className="glass-effect shadow-2xl">
-            <CardContent className="p-6">
-              <h2 className="text-2xl font-semibold text-foreground mb-6 text-center flex items-center justify-center">
-                <Flame className="w-6 h-6 text-primary mr-2" />
+          <Card className="glass-effect shadow-2xl mobile-card">
+            <CardContent className="p-4 sm:p-6">
+              <h2 className="text-responsive-xl font-semibold text-foreground mb-4 sm:mb-6 text-center flex items-center justify-center">
+                <Flame className="w-5 sm:w-6 h-5 sm:h-6 text-primary mr-2" />
                 Acesse Sua Área VIP
               </h2>
               
               {/* Login Credentials Display */}
-              <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-4 mb-6 border border-primary/20">
-                <h3 className="font-semibold text-foreground mb-3 flex items-center">
-                  <Key className="w-5 h-5 text-primary mr-2" />
+              <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-3 sm:p-4 mb-4 sm:mb-6 border border-primary/20">
+                <h3 className="font-semibold text-foreground mb-2 sm:mb-3 flex items-center text-responsive-sm">
+                  <Key className="w-4 sm:w-5 h-4 sm:h-5 text-primary mr-2" />
                   Seus Dados de Acesso:
                 </h3>
                 
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between bg-white rounded-lg p-3">
-                    <div>
-                      <Label className="text-sm text-muted-foreground">Email:</Label>
-                      <div className="font-medium text-foreground text-sm">
+                <div className="space-y-2 sm:space-y-3">
+                  <div className="flex items-center justify-between bg-white rounded-lg p-2 sm:p-3">
+                    <div className="flex-1 min-w-0">
+                      <Label className="text-xs sm:text-sm text-muted-foreground">Email:</Label>
+                      <div className="font-medium text-foreground text-xs sm:text-sm truncate">
                         {AUTH_CONFIG.validEmail}
                       </div>
                     </div>
@@ -107,61 +107,65 @@ export default function Login() {
                       variant="ghost"
                       size="sm"
                       onClick={() => handleCopy(AUTH_CONFIG.validEmail, "Email")}
-                      className="text-primary hover:text-primary/80"
+                      className="text-primary hover:text-primary/80 mobile-button flex-shrink-0 ml-2"
                     >
-                      <Copy className="w-4 h-4" />
+                      <Copy className="w-3 sm:w-4 h-3 sm:h-4" />
                     </Button>
                   </div>
                   
-                  <div className="flex items-center justify-between bg-white rounded-lg p-3">
-                    <div>
-                      <Label className="text-sm text-muted-foreground">Senha:</Label>
-                      <div className="font-medium text-foreground">{AUTH_CONFIG.validPassword}</div>
+                  <div className="flex items-center justify-between bg-white rounded-lg p-2 sm:p-3">
+                    <div className="flex-1 min-w-0">
+                      <Label className="text-xs sm:text-sm text-muted-foreground">Senha:</Label>
+                      <div className="font-medium text-foreground text-xs sm:text-sm">{AUTH_CONFIG.validPassword}</div>
                     </div>
                     <Button
                       variant="ghost"
                       size="sm"
                       onClick={() => handleCopy(AUTH_CONFIG.validPassword, "Senha")}
-                      className="text-primary hover:text-primary/80"
+                      className="text-primary hover:text-primary/80 mobile-button flex-shrink-0 ml-2"
                     >
-                      <Copy className="w-4 h-4" />
+                      <Copy className="w-3 sm:w-4 h-3 sm:h-4" />
                     </Button>
                   </div>
                 </div>
               </div>
               
               {/* Login Form Fields */}
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
                 <div>
-                  <Label htmlFor="email" className="text-foreground font-medium">Email:</Label>
+                  <Label htmlFor="email" className="text-foreground font-medium text-responsive-sm">Email:</Label>
                   <Input
                     id="email"
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="mt-2"
+                    className="mt-1 sm:mt-2 mobile-button"
+                    placeholder="Digite seu email"
+                    autoComplete="email"
                     required
                   />
                 </div>
                 
                 <div>
-                  <Label htmlFor="password" className="text-foreground font-medium">Senha:</Label>
+                  <Label htmlFor="password" className="text-foreground font-medium text-responsive-sm">Senha:</Label>
                   <Input
                     id="password"
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="mt-2"
+                    className="mt-1 sm:mt-2 mobile-button"
+                    placeholder="Digite sua senha"
+                    autoComplete="current-password"
                     required
                   />
                 </div>
                 
                 <Button 
                   type="submit" 
-                  className="w-full animate-pulse-glow"
+                  className="w-full animate-pulse-glow mobile-button text-responsive-sm"
                   disabled={isSubmitting}
                 >
-                  <Rocket className="w-5 h-5 mr-2" />
+                  <Rocket className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
                   {isSubmitting ? "Entrando..." : "Acessar Minha Área VIP"}
                 </Button>
               </form>

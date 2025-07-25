@@ -247,78 +247,80 @@ export default function Dashboard() {
   const displayEmail = userEmail ? userEmail.split('@')[0] + '@projeto...' : '';
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen min-h-[100vh] min-h-[100dvh] bg-background">
       {/* Mobile Header */}
-      <header className="bg-card shadow-sm sticky top-0 z-50">
-        <div className="max-w-4xl mx-auto px-4 py-4">
+      <header className="bg-card shadow-sm sticky top-0 z-50 mobile-scroll">
+        <div className="mobile-container py-3 sm:py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center">
-              <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center mr-3">
-                <Flame className="w-5 h-5 text-white" />
+              <div className="w-8 sm:w-10 h-8 sm:h-10 bg-primary rounded-full flex items-center justify-center mr-2 sm:mr-3">
+                <Flame className="w-4 sm:w-5 h-4 sm:h-5 text-white" />
               </div>
               <div>
-                <h1 className="font-semibold text-foreground text-lg">Glúteo Gigante™</h1>
+                <h1 className="font-semibold text-foreground text-responsive-base">Glúteo Gigante™</h1>
                 <p className="text-muted-foreground text-xs">Área de Membros</p>
               </div>
             </div>
             
             {/* User Menu */}
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-2 sm:space-x-3">
               <div className="text-right hidden sm:block">
                 <p className="text-sm font-medium text-foreground">Bem-vinda!</p>
-                <p className="text-xs text-muted-foreground">{displayEmail}</p>
+                <p className="text-xs text-muted-foreground truncate max-w-[120px]">{displayEmail}</p>
               </div>
               <Button
                 variant="outline"
                 size="sm"
                 onClick={handleLogout}
+                className="mobile-button"
               >
-                <LogOut className="w-4 h-4" />
+                <LogOut className="w-3 sm:w-4 h-3 sm:h-4" />
+                <span className="sr-only">Sair</span>
               </Button>
             </div>
           </div>
           
           {/* Progress Bar */}
-          <ProgressBar className="mt-4" />
+          <ProgressBar className="mt-3 sm:mt-4" />
         </div>
       </header>
 
-      <main className="max-w-4xl mx-auto px-4 py-6 space-y-8">
+      <main className="mobile-container py-4 sm:py-6 space-y-6 sm:space-y-8 pb-safe-bottom">
         {/* Welcome Section */}
-        <section className="gradient-bg rounded-2xl p-6 text-white animate-fade-in">
+        <section className="gradient-bg rounded-xl sm:rounded-2xl p-4 sm:p-6 text-white animate-fade-in">
           <div className="flex items-center justify-between">
             <div className="flex-1">
-              <h2 className="text-2xl font-bold mb-2 flex items-center">
+              <h2 className="text-responsive-xl font-bold mb-2 flex items-center flex-wrap">
                 Bem-vinda ao Projeto Glúteo Gigante™! 
-                <Flame className="w-6 h-6 ml-2" />
+                <Flame className="w-5 sm:w-6 h-5 sm:h-6 ml-2" />
               </h2>
-              <p className="text-white/90 mb-4">
+              <p className="text-white/90 mb-3 sm:mb-4 text-responsive-sm">
                 Estamos animados para ajudá-la a alcançar o bumbum dos seus sonhos em apenas 30 dias!
               </p>
               <div className="flex items-center">
-                <Trophy className="w-5 h-5 text-accent mr-2" />
-                <span className="font-medium">Sua transformação começa agora!</span>
+                <Trophy className="w-4 sm:w-5 h-4 sm:h-5 text-accent mr-2" />
+                <span className="font-medium text-responsive-sm">Sua transformação começa agora!</span>
               </div>
             </div>
             {/* Motivational graphic */}
-            <div className="hidden md:block">
-              <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center">
-                <Flame className="w-8 h-8" />
+            <div className="hidden sm:block">
+              <div className="w-16 sm:w-24 h-16 sm:h-24 bg-white/20 rounded-full flex items-center justify-center">
+                <Flame className="w-6 sm:w-8 h-6 sm:h-8" />
               </div>
             </div>
           </div>
         </section>
 
         {/* Achievement Section */}
-        <Card className="animate-slide-up">
-          <CardContent className="p-6">
-            <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center">
-              <Trophy className="w-6 h-6 text-accent mr-3" />
+        <Card className="animate-slide-up mobile-card">
+          <CardContent className="p-4 sm:p-6">
+            <h3 className="text-responsive-lg font-semibold text-foreground mb-3 sm:mb-4 flex items-center">
+              <Trophy className="w-5 sm:w-6 h-5 sm:h-6 text-accent mr-2 sm:mr-3" />
               Suas Conquistas
             </h3>
             
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
               {achievements.map((achievement) => (
                 <AchievementCard key={achievement.id} achievement={achievement} />
               ))}
