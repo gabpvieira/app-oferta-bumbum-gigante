@@ -326,11 +326,131 @@ export default function Dashboard() {
           </CardContent>
         </Card>
 
-        {/* Main Content Modules */}
+        {/* Premium Modules */}
         <Card className="animate-slide-up">
           <CardContent className="p-6">
             <h3 className="text-xl font-semibold text-foreground mb-2 flex items-center">
               <Flame className="w-6 h-6 text-primary mr-3" />
+              Conteúdo Premium Projeto Glúteo Gigante™
+            </h3>
+            <p className="text-muted-foreground mb-6">
+              Acesse todo o conteúdo denso da sua oferta original com guias completos e passo a passo!
+            </p>
+            
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Module 1 - Complete Guide */}
+              <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-primary/20">
+                <CardContent className="p-0">
+                  <div className="gradient-bg h-32 rounded-t-lg flex items-center justify-center relative overflow-hidden">
+                    <div className="absolute inset-0 bg-black/20"></div>
+                    <div className="relative z-10 text-center text-white">
+                      <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <Flame className="w-8 h-8" />
+                      </div>
+                      <h4 className="font-bold text-lg">Módulo Completo</h4>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h4 className="font-semibold text-foreground mb-2">
+                      Projeto Glúteo Gigante™
+                    </h4>
+                    <p className="text-muted-foreground text-sm mb-4">
+                      Um guia passo a passo para conquistar glúteos grandes e definidos em 30 dias.
+                    </p>
+                    <ul className="text-sm text-muted-foreground space-y-1 mb-4">
+                      <li>• Cronograma claro de treinos</li>
+                      <li>• Estratégias de ativação muscular</li>
+                      <li>• Dicas de postura e estilo</li>
+                      <li>• Monitoramento semanal</li>
+                    </ul>
+                    <Button 
+                      className="w-full group-hover:bg-primary group-hover:text-white transition-colors"
+                      onClick={() => setLocation("/module-complete")}
+                    >
+                      Acessar Conteúdo
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Module 2 - Schedule */}
+              <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-secondary/20">
+                <CardContent className="p-0">
+                  <div className="bg-gradient-to-r from-secondary to-secondary/80 h-32 rounded-t-lg flex items-center justify-center relative overflow-hidden">
+                    <div className="absolute inset-0 bg-black/20"></div>
+                    <div className="relative z-10 text-center text-white">
+                      <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <i className="fas fa-calendar-alt text-2xl"></i>
+                      </div>
+                      <h4 className="font-bold text-lg">Cronograma</h4>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h4 className="font-semibold text-foreground mb-2">
+                      Cronograma de Treinos
+                    </h4>
+                    <p className="text-muted-foreground text-sm mb-4">
+                      Um plano detalhado para você seguir diariamente por 30 dias.
+                    </p>
+                    <ul className="text-sm text-muted-foreground space-y-1 mb-4">
+                      <li>• Treinos divididos por semana</li>
+                      <li>• Técnicas de intensificação</li>
+                      <li>• Dicas de execução</li>
+                      <li>• Progressão controlada</li>
+                    </ul>
+                    <Button 
+                      className="w-full group-hover:bg-secondary group-hover:text-white transition-colors"
+                      onClick={() => setLocation("/module-schedule")}
+                    >
+                      Acessar Conteúdo
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Module 3 - Diet */}
+              <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-accent/20">
+                <CardContent className="p-0">
+                  <div className="bg-gradient-to-r from-accent to-accent/80 h-32 rounded-t-lg flex items-center justify-center relative overflow-hidden">
+                    <div className="absolute inset-0 bg-black/20"></div>
+                    <div className="relative z-10 text-center text-white">
+                      <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <i className="fas fa-utensils text-2xl"></i>
+                      </div>
+                      <h4 className="font-bold text-lg">Mini-Dieta</h4>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h4 className="font-semibold text-foreground mb-2">
+                      Mini-Dieta Bônus
+                    </h4>
+                    <p className="text-muted-foreground text-sm mb-4">
+                      Receitas e dicas de alimentação que potencializam seus resultados.
+                    </p>
+                    <ul className="text-sm text-muted-foreground space-y-1 mb-4">
+                      <li>• 30 receitas simples e rápidas</li>
+                      <li>• Princípios da nutrição</li>
+                      <li>• Dicas práticas</li>
+                      <li>• Rotina alimentar</li>
+                    </ul>
+                    <Button 
+                      className="w-full group-hover:bg-accent group-hover:text-white transition-colors"
+                      onClick={() => setLocation("/module-diet")}
+                    >
+                      Acessar Conteúdo
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Method Modules Section */}
+        <Card className="animate-slide-up">
+          <CardContent className="p-6">
+            <h3 className="text-xl font-semibold text-foreground mb-2 flex items-center">
+              <Star className="w-6 h-6 text-accent mr-3" />
               Método de Ativação Muscular
             </h3>
             <p className="text-muted-foreground mb-6">
@@ -348,77 +468,6 @@ export default function Dashboard() {
             </div>
           </CardContent>
         </Card>
-
-        {/* Bonus Section */}
-        <section className="bg-gradient-to-r from-accent/10 to-primary/10 rounded-2xl p-6 animate-slide-up">
-          <div className="text-center mb-6">
-            <h3 className="text-2xl font-bold text-foreground mb-2 flex items-center justify-center">
-              <Star className="w-6 h-6 text-accent mr-3" />
-              Seus Bônus Exclusivos
-            </h3>
-            <p className="text-muted-foreground">
-              Além do conteúdo principal, você tem acesso a estes materiais de valor inestimável
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* Bonus 1 */}
-            <Card>
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center mr-4">
-                    <i className="fas fa-calendar-check text-white"></i>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground">Cronograma 30 Dias</h4>
-                    <p className="text-muted-foreground text-sm">Planejamento dia a dia</p>
-                  </div>
-                </div>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Um cronograma detalhado que organiza todos os exercícios e dicas em uma sequência 
-                  otimizada para máximos resultados.
-                </p>
-                <div className="bg-accent/10 rounded-lg p-3">
-                  <h6 className="font-medium text-foreground mb-2">📋 Inclui:</h6>
-                  <ul className="text-muted-foreground text-sm space-y-1">
-                    <li>• Rotina diária de exercícios</li>
-                    <li>• Lembretes nutricionais</li>
-                    <li>• Marcos de progresso</li>
-                    <li>• Dicas motivacionais</li>
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
-            
-            {/* Bonus 2 */}
-            <Card>
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mr-4">
-                    <i className="fas fa-chart-line text-white"></i>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground">Planilha de Medidas</h4>
-                    <p className="text-muted-foreground text-sm">Acompanhe sua evolução</p>
-                  </div>
-                </div>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Template completo para registrar suas medidas e fotos de progresso, 
-                  mantendo você motivada ao ver os resultados.
-                </p>
-                <div className="bg-secondary/10 rounded-lg p-3">
-                  <h6 className="font-medium text-foreground mb-2">📊 Recursos:</h6>
-                  <ul className="text-muted-foreground text-sm space-y-1">
-                    <li>• Tabela de medidas corporais</li>
-                    <li>• Registro fotográfico</li>
-                    <li>• Gráficos de evolução</li>
-                    <li>• Metas semanais</li>
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
 
         {/* Progress Stats */}
         <Card className="animate-slide-up">
