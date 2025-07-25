@@ -46,6 +46,12 @@ Preferred communication style: Simple, everyday language.
 - Client-side auth state management with automatic redirects
 - Protected routes that require authentication
 
+### Auto-Save Checklist System
+- Device fingerprinting using userAgent + screen dimensions + timezone
+- Auto-save functionality using localStorage with unique device keys
+- Real-time progress saving across all modules and bonus content
+- Data persistence works offline with format: `checklist_${deviceFingerprint}`
+
 ### Progress Tracking
 - Local storage-based progress tracking system
 - Lesson completion tracking with visual progress indicators
@@ -53,9 +59,11 @@ Preferred communication style: Simple, everyday language.
 - 30-day transformation timeline tracking
 
 ### Content Management
-- Modular lesson system with expandable content cards
+- Three main premium modules: Complete Project Guide, Training Schedule, Mini-Diet Bonus
+- BÔNUS EXCLUSIVOS section with Posture & Style Guide and Body Enhancement Secrets
 - Rich content format supporting examples, tips, and warnings
-- Interactive lesson completion with real-time progress updates
+- Interactive checklist system with auto-save functionality
+- All checklists integrated with main progress bar system
 
 ### PWA Features
 - Service worker for offline content caching
@@ -114,3 +122,15 @@ Preferred communication style: Simple, everyday language.
 - Component-based UI architecture supports feature additions
 - Database schema uses UUID primary keys for horizontal scaling
 - localStorage-based progress can be migrated to database when needed
+
+## Recent Changes
+
+### January 25, 2025
+- Created BÔNUS EXCLUSIVOS section with two new content modules
+- Added Posture & Style Guide (/bonus-posture) with comprehensive styling and posture tips
+- Added Body Enhancement Secrets (/bonus-body) with confidence and self-image content
+- Removed "Método de Ativação Muscular" section completely as requested
+- Implemented auto-save checklist system with device fingerprinting
+- Updated WhatsApp support number to 84 999389121
+- Integrated all module checklists with main progress bar system
+- All content now persists offline using device-specific localStorage keys

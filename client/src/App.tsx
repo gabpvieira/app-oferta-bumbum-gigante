@@ -8,6 +8,8 @@ import Dashboard from "./pages/dashboard";
 import ModuleComplete from "./pages/module-complete";
 import ModuleSchedule from "./pages/module-schedule";
 import ModuleDiet from "./pages/module-diet";
+import BonusPosture from "./pages/bonus-posture";
+import BonusBody from "./pages/bonus-body";
 import NotFound from "./pages/not-found";
 
 function Router() {
@@ -18,6 +20,8 @@ function Router() {
       <Route path="/module-complete" component={ModuleComplete} />
       <Route path="/module-schedule" component={ModuleSchedule} />
       <Route path="/module-diet" component={ModuleDiet} />
+      <Route path="/bonus-posture" component={BonusPosture} />
+      <Route path="/bonus-body" component={BonusBody} />
       <Route component={NotFound} />
     </Switch>
   );

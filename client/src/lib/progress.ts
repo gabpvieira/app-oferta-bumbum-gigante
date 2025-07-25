@@ -36,12 +36,33 @@ export function calculateProgress(): {
   completedModules: number;
 } {
   const progress = getProgressData();
-  const totalLessons = 9; // Total lessons across all modules
-  const progressPercentage = Math.round((progress.completedLessons.length / totalLessons) * 100);
-  const completedModules = Math.floor(progress.completedLessons.length / 3);
+  
+  // Try to get checklist progress from new storage system
+  let totalCompleted = progress.completedLessons.length;
+  
+  try {
+    // Count all completed items from localStorage for device fingerprint
+    const deviceFingerprint = `${navigator.userAgent}_${screen.width}x${screen.height}_${Intl.DateTimeFormat().resolvedOptions().timeZone}`;
+    const checklistKey = `checklist_${deviceFingerprint}`;
+    const checklistData = localStorage.getItem(checklistKey);
+    
+    if (checklistData) {
+      const checklistProgress = JSON.parse(checklistData);
+      Object.values(checklistProgress).forEach((value) => {
+        if (value) totalCompleted++;
+      });
+    }
+  } catch (error) {
+    console.log('Checklist progress not available');
+  }
+  
+  // Estimate total items (approximate)
+  const totalLessons = 120; // Estimate of all checklists across all modules and bonuses
+  const progressPercentage = Math.min(100, Math.round((totalCompleted / totalLessons) * 100));
+  const completedModules = Math.floor(totalCompleted / 15);
   
   return {
-    completedLessons: progress.completedLessons.length,
+    completedLessons: totalCompleted,
     totalLessons,
     progressPercentage,
     completedModules

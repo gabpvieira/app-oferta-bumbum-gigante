@@ -7,7 +7,7 @@ import { initializeProgress, calculateProgress } from "@/lib/progress";
 import ProgressBar from "@/components/ProgressBar";
 import ModuleCard from "@/components/ModuleCard";
 import AchievementCard from "@/components/AchievementCard";
-import { Flame, LogOut, Trophy, Star, Headphones, MessageCircle, Users } from "lucide-react";
+import { Flame, LogOut, Trophy, Star, Headphones, MessageCircle, Users, Crown, Heart } from "lucide-react";
 
 const moduleData = [
   {
@@ -446,25 +446,77 @@ export default function Dashboard() {
           </CardContent>
         </Card>
 
-        {/* Method Modules Section */}
+        {/* BÔNUS EXCLUSIVOS Section */}
         <Card className="animate-slide-up">
           <CardContent className="p-6">
             <h3 className="text-xl font-semibold text-foreground mb-2 flex items-center">
-              <Star className="w-6 h-6 text-accent mr-3" />
-              Método de Ativação Muscular
+              <Crown className="w-6 h-6 text-accent mr-3" />
+              BÔNUS EXCLUSIVOS
             </h3>
             <p className="text-muted-foreground mb-6">
-              Aprenda a ativar e desenvolver seus glúteos rapidamente em apenas 15 minutos por dia!
+              Conteúdos extras para potencializar sua transformação e elevar sua autoestima!
             </p>
             
-            <div className="space-y-4">
-              {moduleData.map((module) => (
-                <ModuleCard 
-                  key={module.id} 
-                  module={module} 
-                  onProgressUpdate={handleProgressUpdate}
-                />
-              ))}
+            <div className="grid md:grid-cols-2 gap-6">
+              <Card className="group hover:shadow-lg transition-all duration-300 border-2 border-transparent hover:border-accent">
+                <CardContent className="p-6">
+                  <div className="flex items-start">
+                    <div className="w-16 h-16 bg-gradient-to-r from-accent to-primary rounded-full flex items-center justify-center mr-4">
+                      <Crown className="w-8 h-8 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-lg font-semibold text-foreground mb-2">
+                        Guia de Postura e Estilo
+                      </h4>
+                      <p className="text-muted-foreground text-sm mb-4">
+                        Como se vestir e se posicionar para realçar seus glúteos com elegância.
+                      </p>
+                      <ul className="text-sm text-muted-foreground space-y-1 mb-4">
+                        <li>• Postura que empina o bumbum</li>
+                        <li>• Roupas que valorizam suas curvas</li>
+                        <li>• Dicas de fotos e poses</li>
+                        <li>• Styling inteligente</li>
+                      </ul>
+                      <Button 
+                        className="w-full group-hover:bg-accent group-hover:text-white transition-colors"
+                        onClick={() => setLocation("/bonus-posture")}
+                      >
+                        Acessar Conteúdo
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="group hover:shadow-lg transition-all duration-300 border-2 border-transparent hover:border-secondary">
+                <CardContent className="p-6">
+                  <div className="flex items-start">
+                    <div className="w-16 h-16 bg-gradient-to-r from-secondary to-accent rounded-full flex items-center justify-center mr-4">
+                      <Heart className="w-8 h-8 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-lg font-semibold text-foreground mb-2">
+                        Segredos Para Valorizar Seu Corpo
+                      </h4>
+                      <p className="text-muted-foreground text-sm mb-4">
+                        Dicas práticas para se sentir linda e confiante todos os dias.
+                      </p>
+                      <ul className="text-sm text-muted-foreground space-y-1 mb-4">
+                        <li>• Construção da autoimagem</li>
+                        <li>• Elegância e presença</li>
+                        <li>• Afirmações poderosas</li>
+                        <li>• Ritual de autoestima</li>
+                      </ul>
+                      <Button 
+                        className="w-full group-hover:bg-secondary group-hover:text-white transition-colors"
+                        onClick={() => setLocation("/bonus-body")}
+                      >
+                        Acessar Conteúdo
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </CardContent>
         </Card>
@@ -510,19 +562,27 @@ export default function Dashboard() {
             </h3>
             
             <div className="grid md:grid-cols-2 gap-4">
-              <Card className="bg-green-50 border-green-200 hover:bg-green-100 transition-colors cursor-pointer">
-                <CardContent className="p-4">
-                  <div className="flex items-center">
-                    <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mr-4">
-                      <MessageCircle className="w-6 h-6 text-white" />
+              <a 
+                href="https://wa.me/5584999389121?text=Olá! Preciso de ajuda com o Projeto Glúteo Gigante"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <Card className="bg-green-50 border-green-200 hover:bg-green-100 transition-colors cursor-pointer">
+                  <CardContent className="p-4">
+                    <div className="flex items-center">
+                      <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mr-4">
+                        <MessageCircle className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-foreground">Suporte WhatsApp</h4>
+                        <p className="text-muted-foreground text-sm">Tire suas dúvidas diretamente conosco</p>
+                        <p className="text-green-600 text-xs font-medium mt-1">(84) 99938-9121</p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-foreground">Suporte WhatsApp</h4>
-                      <p className="text-muted-foreground text-sm">Tire suas dúvidas diretamente conosco</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </a>
               
               <Card className="bg-blue-50 border-blue-200">
                 <CardContent className="p-4">
