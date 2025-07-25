@@ -1,0 +1,538 @@
+# InfoApp Premium: Projeto Glúteo Gigante™ - Área de Membros Mobile-First
+
+## VISÃO GERAL DO PROJETO
+Desenvolver um InfoApp premium 100% otimizado para dispositivos móveis, com área de membros protegida por login único. O aplicativo deve entregar um método caseiro para conquistar glúteos grandes e definidos em apenas 30 dias, através de uma interface moderna, intuitiva e engaging.
+
+**Tema**: Fitness
+**Público**: Mulheres que desejam melhorar a estética dos glúteos e a autoestima
+**Objetivo**: Transformar o bumbum em 30 dias, garantindo resultados visíveis e rápidos
+
+## ESPECIFICAÇÕES TÉCNICAS
+
+### Tecnologias Obrigatórias:
+- HTML5 semântico e acessível
+- CSS3 com Flexbox/Grid (Mobile-First)
+- JavaScript Vanilla (sem frameworks externos)
+- Font: Poppins (Google Fonts)
+- PWA capabilities (Service Worker, Manifest)
+- LocalStorage para persistência de dados
+- Responsive Design (320px - 1440px+)
+
+### Estrutura de Arquivos:
+```
+/
+├── index.html (Landing/Login)
+├── dashboard.html (Área de Membros)
+├── css/
+│   ├── login.css
+│   ├── dashboard.css
+│   └── components.css
+├── js/
+│   ├── auth.js
+│   ├── dashboard.js
+│   └── utils.js
+├── assets/
+│   ├── icons/
+│   └── images/
+└── manifest.json
+```
+
+## PALETA DE CORES TEMÁTICA
+
+Baseado no tema fitness, utilize a seguinte paleta:
+
+**Cores Primárias:**
+- Primary: #ff6f61
+- Secondary: #3cba54
+- Accent: #f9a825
+
+**Cores de Sistema:**
+- Background: #f5f5f5
+- Surface: #ffffff
+- Text Primary: #212121
+- Text Secondary: #757575
+- Success: #4caf50
+- Warning: #ff9800
+- Error: #f44336
+
+**Exemplo de Paleta [BASEADA NO TEMA]:**
+```css
+:root {
+  --primary: #ff6f61;
+  --secondary: #3cba54;
+  --accent: #f9a825;
+  /* ... outras cores */
+}
+```
+
+## SISTEMA DE AUTENTICAÇÃO
+
+### Credenciais Baseadas no Produto:
+Baseado no nome do produto "Projeto Glúteo Gigante", criar:
+
+**Login**: user236@projetogluteogigante.com
+- Exemplo: user236@projetogluteogigante.com
+- Remover espaços, acentos e caracteres especiais
+- Converter para minúsculas
+- Manter apenas letras e números
+
+**Senha**: 123654 (padrão para todos os produtos)
+
+### Funcionalidades de Login:
+1. **Tela de Login Premium**:
+   - Campo de email (pré-preenchido como exemplo)
+   - Campo de senha
+   - Botão "Acessar Minha Área VIP" 
+   - Credenciais visíveis na tela como "Dados de Acesso"
+   - Design premium com animações suaves
+   - Logo/branding do produto
+
+2. **Validação Específica**:
+   - Email: user236@projetogluteogigante.com
+   - Senha: 123654
+   - Feedback visual de erro/sucesso
+   - Múltiplas tentativas permitidas
+
+3. **Persistência**:
+   - Salvar login no localStorage
+   - Redirecionamento automático se já logado
+   - Sessão permanente
+
+### Código de Referência:
+```javascript
+// Validação de login baseada no produto
+function validateLogin(email, password) {
+    const productName = "projetogluteogigante"; // Ex: "projetogluteogigante"
+    const validEmail = `user236@${productName}.com`;
+    const validPassword = "123654";
+    
+    if (email === validEmail && password === validPassword) {
+        localStorage.setItem('userLoggedIn', 'true');
+        localStorage.setItem('userEmail', email);
+        localStorage.setItem('productAccess', productName);
+        window.location.href = 'dashboard.html';
+        return true;
+    }
+    return false;
+}
+```
+
+### Exibir Credenciais na Tela de Login:
+```html
+<div class="login-credentials">
+    <h3>🔑 Seus Dados de Acesso:</h3>
+    <div class="credential-item">
+        <label>Email:</label>
+        <span class="credential-value">user236@projetogluteogigante.com</span>
+        <button onclick="copyToClipboard('user236@projetogluteogigante.com')">📋</button>
+    </div>
+    <div class="credential-item">
+        <label>Senha:</label>
+        <span class="credential-value">123654</span>
+        <button onclick="copyToClipboard('123654')">📋</button>
+    </div>
+</div>
+```
+
+## ÁREA DE MEMBROS - ESTRUTURA COMPLETA
+
+### Header/Navegação:
+- Logo do produto
+- Menu hamburguer (mobile)
+- Avatar/nome do usuário
+- Botão de logout
+- Progresso geral (barra de conclusão)
+
+### Seções Obrigatórias:
+
+#### 1. **BOAS-VINDAS**
+```html
+<section class="welcome-section">
+  <h1>Bem-vindo(a) ao Projeto Glúteo Gigante™!</h1>
+  <p>Estamos animados para ajudá-lo(a) a alcançar o bumbum dos seus sonhos!</p>
+  <div class="progress-overview">
+    <span>Seu Progresso: 0%</span>
+    <div class="progress-bar">
+      <div class="progress-fill"></div>
+    </div>
+  </div>
+</section>
+```
+
+#### 2. **CONTEÚDO PRINCIPAL COMPLETO**
+O conteúdo principal abordará treinos diários focados, mini-dieta, dicas de estilo e postura, e um sistema de monitoramento de progresso.
+
+**Estrutura do Conteúdo Principal:**
+
+```html
+<section class="main-content">
+  <h2>Método de Ativação Muscular</h2>
+  <p class="content-intro">Aprenda a ativar e desenvolver seus glúteos rapidamente em apenas 15 minutos por dia!</p>
+  
+  <div class="modules-container">
+    <!-- MÓDULO 1 -->
+    <div class="module-card" data-module="1">
+      <div class="module-header">
+        <div class="module-icon">🏋️‍♀️</div>
+        <div class="module-info">
+          <h3>Módulo 1: Ativação Muscular Diária</h3>
+          <p class="module-description">A transformação começa com a ativação dos glúteos.</p>
+          <span class="module-duration">⏱️ 15 minutos por dia</span>
+        </div>
+        <button class="module-toggle">▼</button>
+      </div>
+      
+      <div class="module-content">
+        <div class="lesson-steps">
+          <h4>📋 O que você vai aprender:</h4>
+          <ul class="lesson-list">
+            <li class="lesson-item">
+              <span class="lesson-number">1</span>
+              <div class="lesson-details">
+                <h5>Exercícios Práticos</h5>
+                <p>Nesta lição, vamos focar nos exercícios que você pode fazer em casa.</p>
+                <div class="lesson-examples">
+                  <h6>💡 Exemplo Prático:</h6>
+                  <p>Use uma cadeira como apoio para agachamentos e lunges.</p>
+                </div>
+                <div class="lesson-tips">
+                  <h6>🎯 Dica Importante:</h6>
+                  <p>Mantenha a postura correta durante os exercícios para evitar lesões.</p>
+                </div>
+              </div>
+              <button class="mark-complete" onclick="toggleComplete(this, '1-1')">✅</button>
+            </li>
+            
+            <!-- Continuar com mais lições baseadas na oferta -->
+          </ul>
+        </div>
+        
+        <div class="module-summary">
+          <h4>📊 Resumo do Módulo:</h4>
+          <p>Você aprendeu como realizar os exercícios de ativação muscular todos os dias.</p>
+          <div class="next-steps">
+            <h5>👉 Próximos Passos:</h5>
+            <p>Prepare-se para o módulo de Mini-Dieta.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- REPETIR ESTRUTURA PARA CADA MÓDULO IDENTIFICADO NA OFERTA -->
+  </div>
+</section>
+
+<!-- SEÇÃO DE IMPLEMENTAÇÃO PRÁTICA -->
+<section class="implementation-guide">
+  <h2>🛠️ Guia de Implementação</h2>
+  <div class="implementation-steps">
+    <div class="step-card">
+      <div class="step-number">1</div>
+      <div class="step-content">
+        <h3>Semana 1: Iniciação</h3>
+        <p>Comece com os treinos básicos e ajuste sua dieta conforme necessário.</p>
+        <ul class="daily-tasks">
+          <li><strong>Dia 1:</strong> Exercícios de ativação</li>
+          <li><strong>Dia 2:</strong> Repetir exercícios do dia anterior</li>
+          <li><strong>Dia 3:</strong> Introduzir novas variações</li>
+          <!-- Continuar para todos os 7 dias -->
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Repetir para outras semanas baseado no cronograma da oferta -->
+  </div>
+</section>
+
+<!-- SEÇÃO DE FERRAMENTAS E RECURSOS -->
+<section class="tools-resources">
+  <h2>🧰 Suas Ferramentas</h2>
+  <div class="tools-grid">
+    <div class="tool-card">
+      <div class="tool-icon">📊</div>
+      <h3>Planilha de Progresso</h3>
+      <p>Use esta planilha para acompanhar seu progresso semanalmente.</p>
+      <div class="tool-content">
+        [CONTEÚDO COMPLETO DA FERRAMENTA - TEMPLATES, CHECKLISTS, ETC.]
+      </div>
+    </div>
+    
+    <!-- Mais ferramentas baseadas na oferta -->
+  </div>
+</section>
+```
+
+**DIRETRIZES PARA GERAÇÃO DE CONTEÚDO:**
+
+1. **Volume Mínimo por Módulo**: 1500-2000 palavras de conteúdo útil
+2. **Estrutura Obrigatória**: Introdução → Passos → Exemplos → Dicas → Ação
+3. **Linguagem**: Direta, prática e motivacional
+4. **Elementos Visuais**: Usar emojis e ícones para quebrar o texto
+5. **Interatividade**: Checkboxes, botões de ação, campos de input
+6. **Progressão**: Cada módulo deve conectar com o próximo
+7. **Aplicabilidade**: Tudo deve ser acionável e específico
+
+**CONTEÚDO ESPECÍFICO A GERAR:**
+- Métodos passo-a-passo completos
+- Exemplos reais e aplicáveis  
+- Templates e checklists
+- Cronogramas detalhados
+- Exercícios práticos
+- Scripts e fórmulas
+- Casos de estudo
+- Troubleshooting comum
+
+#### 3. **ÁREA DE BÔNUS COM CONTEÚDO COMPLETO**
+```
+<section class="bonus-section">
+  <h2>🎁 Seus Bônus Exclusivos</h2>
+  <p class="bonus-intro">Além do conteúdo principal, você tem acesso a estes materiais de valor inestimável:</p>
+  
+  <div class="bonus-container">
+    <!-- PARA CADA BÔNUS IDENTIFICADO NA OFERTA -->
+    <div class="bonus-card">
+      <div class="bonus-header">
+        <div class="bonus-icon">✨</div>
+        <div class="bonus-info">
+          <h3>Segredos para Valorizar Seu Corpo</h3>
+          <p class="bonus-description">Dicas práticas para se sentir linda e confiante.</p>
+          <span class="bonus-value">💰 Valor: R$ 0 (Grátis para membros)</span>
+        </div>
+        <button class="bonus-toggle">▼</button>
+      </div>
+      
+      <div class="bonus-content">
+        <div class="bonus-main-content">
+          <h4>📋 Conteúdo Completo:</h4>
+          <p>Aprenda sobre posturas e estilos que realçam suas curvas de forma positiva.</p>
+          <div class="bonus-implementation">
+            <h4>🚀 Como Implementar Este Bônus:</h4>
+            <p>Pratique diariamente as dicas aprendidas e note a diferença.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- REPETIR PARA CADA BÔNUS IDENTIFICADO -->
+  </div>
+</section>
+```
+
+**DIRETRIZES PARA GERAÇÃO DE BÔNUS:**
+
+1. **Conteúdo Completo**: Cada bônus deve ter 800-1200 palavras de conteúdo útil
+2. **Materiais Práticos**: Gerar templates, checklists, planilhas reais
+3. **Implementação Clara**: Passo-a-passo de como usar cada bônus
+4. **Valor Agregado**: Cada bônus deve complementar o conteúdo principal
+5. **Interatividade**: Formulários, calculadoras, geradores quando aplicável
+
+**TIPOS DE BÔNUS A GERAR:**
+- Checklists detalhados
+- Templates personalizáveis  
+- Scripts e roteiros
+- Planilhas de acompanhamento
+- Guias complementares
+- Casos de estudo extras
+- Ferramentas e calculadoras
+- Cronogramas específicos
+
+#### 4. **PROGRESSO E CONQUISTAS**
+```html
+<section class="progress-section">
+  <h2>📊 Seu Progresso</h2>
+  
+  <div class="achievements">
+    <div class="achievement unlocked">
+      <span class="achievement-icon">🏆</span>
+      <span>Primeiro Acesso</span>
+    </div>
+    <!-- Mais conquistas baseadas no tema -->
+  </div>
+  
+  <div class="progress-stats">
+    <div class="stat">
+      <span class="stat-number">0</span>
+      <span class="stat-label">Módulos Concluídos</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">0%</span>
+      <span class="stat-label">Progresso Total</span>
+    </div>
+  </div>
+</section>
+```
+
+#### 5. **SUPORTE E COMUNIDADE**
+```html
+<section class="support-section">
+  <h2>💬 Suporte & Comunidade</h2>
+  
+  <div class="support-options">
+    <a href="[LINK_WHATSAPP]" class="support-card whatsapp">
+      <div class="support-icon">📱</div>
+      <h3>Suporte WhatsApp</h3>
+      <p>Tire suas dúvidas diretamente conosco</p>
+    </a>
+  </div>
+</section>
+```
+
+#### 6. **DEPOIMENTOS/SOCIAL PROOF**
+```html
+<section class="testimonials-section">
+  <h2>⭐ Resultados de Nossos Membros</h2>
+  
+  <div class="testimonials-slider">
+    <!-- Para cada depoimento identificado -->
+    <div class="testimonial-card">
+      <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+      <p>"Eu não acreditava que poderia ter resultados tão rápidos! Em apenas 30 dias, meu bumbum ficou mais firme e empinado!"</p>
+      <div class="testimonial-author">
+        <strong>Juliana S.</strong>
+        <span>São Paulo</span>
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+## COMPONENTES MÓVEIS OBRIGATÓRIOS
+
+### 1. **Cards Expansíveis**:
+```javascript
+// Cards que expandem para mostrar conteúdo completo
+function createExpandableCard(title, content, icon) {
+    return `
+    <div class="expandable-card" onclick="toggleCard(this)">
+        <div class="card-header">
+            <span class="card-icon">${icon}</span>
+            <h3>${title}</h3>
+            <span class="expand-arrow">▼</span>
+        </div>
+        <div class="card-content">
+            ${content}
+        </div>
+    </div>
+    `;
+}
+```
+
+### 2. **Sistema de Progresso**:
+```javascript
+// Salvar e carregar progresso do usuário
+function updateProgress(moduleId, completed) {
+    let progress = JSON.parse(localStorage.getItem('userProgress') || '{}');
+    progress[moduleId] = completed;
+    localStorage.setItem('userProgress', JSON.stringify(progress));
+    updateProgressBar();
+}
+```
+
+### 3. **Navegação por Abas**:
+```javascript
+// Sistema de abas para organizar conteúdo
+function switchTab(tabName) {
+    document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
+    });
+    document.getElementById(tabName).classList.add('active');
+}
+```
+
+## DESIGN RESPONSIVO ESPECÍFICO
+
+### Breakpoints:
+- Mobile: 320px - 767px (foco principal)
+- Tablet: 768px - 1023px
+- Desktop: 1024px+
+
+### Componentes Móveis:
+1. **Touch-Friendly Buttons**: Mínimo 44px de altura
+2. **Swipe Gestures**: Para navegação entre seções
+3. **Sticky Navigation**: Header fixo ao rolar
+4. **Pull-to-Refresh**: Atualizar conteúdo
+5. **Loading States**: Skeleton screens
+6. **Offline Support**: Cache de conteúdo essencial
+
+### CSS Mobile-First:
+```css
+/* Base mobile styles */
+.container { padding: 16px; }
+.card { margin-bottom: 16px; border-radius: 12px; }
+.button { min-height: 44px; border-radius: 8px; }
+
+/* Tablet */
+@media (min-width: 768px) {
+    .container { padding: 24px; }
+    .card { margin-bottom: 24px; }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .container { max-width: 1200px; margin: 0 auto; }
+}
+```
+
+## FUNCIONALIDADES PREMIUM
+
+### 1. **Sistema de Notificações**:
+- Notificações push para engajamento
+- Lembretes de módulos não concluídos
+- Celebração de conquistas
+
+### 2. **Modo Offline**:
+- Cache de conteúdo principal
+- Sincronização quando online
+- Indicador de status de conexão
+
+### 3. **Personalização**:
+- Tema claro/escuro
+- Tamanho de fonte ajustável
+- Preferências de notificação
+
+### 4. **Analytics Simples**:
+- Tempo gasto em cada seção
+- Módulos mais acessados
+- Taxa de conclusão
+
+### 5. **Gamificação**:
+- Sistema de pontos
+- Badges por conclusão
+- Streaks de acesso diário
+
+## INSTRUÇÕES FINAIS PARA O REPLIT
+
+### Prioridades de Desenvolvimento:
+1. **Primeiro**: Estrutura HTML semântica e responsiva
+2. **Segundo**: CSS mobile-first com a paleta definida
+3. **Terceiro**: JavaScript para interações e persistência
+4. **Quarto**: PWA features e otimizações
+
+### Checklist de Qualidade:
+- [ ] Design 100% responsivo (teste em 320px)
+- [ ] Fonte Poppins carregada corretamente
+- [ ] Sistema de login baseado no produto funcional (user236@projetogluteogigante.com / 123654)
+- [ ] Credenciais visíveis na tela de login
+- [ ] LocalStorage implementado para sessão
+- [ ] TODO o conteúdo gerado e incluído (sem necessidade de ebooks)
+- [ ] Todos os módulos com conteúdo completo (1500+ palavras cada)
+- [ ] Todos os bônus com conteúdo detalhado (800+ palavras cada)
+- [ ] Templates e materiais práticos gerados
+- [ ] Sistema de progresso funcional
+- [ ] Paleta de cores aplicada consistentemente
+- [ ] Animações suaves (60fps)
+- [ ] Funcionalidade de PDF generation para materiais
+- [ ] Acessibilidade básica (ARIA labels)
+- [ ] Performance otimizada (< 3s carregamento)
+
+### Estrutura de Teste:
+1. Teste o login com user236@projetogluteogigante.com / senha 123654
+2. Verifique se as credenciais aparecem na tela de login
+3. Verifique responsividade em diferentes telas
+4. Teste expansão de módulos e bônus
+5. Valide geração de PDFs dos materiais
+6. Teste sistema de progresso e checkboxes
+7. Confirme que TODO conteúdo está disponível sem downloads externos
+
+### Entrega Final:
+O InfoApp deve ser uma experiência premium COMPLETA, com TODO o conteúdo da oferta original transformado em módulos interativos, bônus detalhados e materiais práticos, eliminando completamente a necessidade de ebooks externos. O usuário deve ter acesso a 100% do valor prometido diretamente na plataforma.
