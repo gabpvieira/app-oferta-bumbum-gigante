@@ -3,6 +3,7 @@ import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { isLoggedIn } from "@/lib/auth";
+import { saveProgress, loadProgress } from "@/lib/checklist-storage";
 import { ArrowLeft, Calendar, Target, CheckCircle, Clock, Trophy, Flame, Zap, Heart } from "lucide-react";
 
 const scheduleData = [
@@ -279,6 +280,21 @@ export default function ModuleSchedule() {
       setLocation("/");
       return;
     }
+
+    // Load saved progress on component mount
+    const savedProgress = loadProgress();
+    const completedSet = new Set<number>();
+    
+    Object.entries(savedProgress).forEach(([key, value]) => {
+      if (value && key.startsWith('module-schedule-day-')) {
+        const dayNumber = parseInt(key.replace('module-schedule-day-', ''));
+        if (!isNaN(dayNumber)) {
+          completedSet.add(dayNumber);
+        }
+      }
+    });
+    
+    setCompletedDays(completedSet);
   }, [setLocation]);
 
   const handleBack = () => {
@@ -287,12 +303,23 @@ export default function ModuleSchedule() {
 
   const toggleDayComplete = (day: number) => {
     const newCompleted = new Set(completedDays);
+    let isCompleted = false;
+    
     if (newCompleted.has(day)) {
       newCompleted.delete(day);
+      isCompleted = false;
     } else {
       newCompleted.add(day);
+      isCompleted = true;
     }
+    
     setCompletedDays(newCompleted);
+    
+    // Auto-save progress
+    const fullKey = `module-schedule-day-${day}`;
+    const currentProgress = loadProgress();
+    currentProgress[fullKey] = isCompleted;
+    saveProgress(currentProgress);
   };
 
   const currentWeek = scheduleData[activeWeek - 1];

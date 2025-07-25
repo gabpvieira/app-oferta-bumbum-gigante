@@ -5,6 +5,7 @@ export interface ProgressData {
 }
 
 export function getProgressData(): ProgressData {
+  // Fallback to old format for now - will integrate checklist storage later
   const completedLessons = JSON.parse(localStorage.getItem('completedLessons') || '[]');
   const dayCount = parseInt(localStorage.getItem('dayCount') || '1');
   const startDate = localStorage.getItem('startDate') || new Date().toISOString();
@@ -22,7 +23,9 @@ export function toggleLessonComplete(lessonId: string): boolean {
     progress.completedLessons.push(lessonId);
   }
   
+  // Save to localStorage
   localStorage.setItem('completedLessons', JSON.stringify(progress.completedLessons));
+  
   return !isCompleted;
 }
 

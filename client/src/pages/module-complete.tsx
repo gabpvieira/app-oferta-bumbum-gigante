@@ -3,6 +3,7 @@ import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { isLoggedIn, logout } from "@/lib/auth";
+import { saveProgress, loadProgress } from "@/lib/checklist-storage";
 import { ArrowLeft, Clock, Target, CheckCircle, Calendar, Trophy, Flame, Heart, Star } from "lucide-react";
 
 const weekData = [
@@ -110,6 +111,18 @@ export default function ModuleComplete() {
       setLocation("/");
       return;
     }
+
+    // Load saved progress on component mount
+    const savedProgress = loadProgress();
+    const checkedSet = new Set<string>();
+    
+    Object.entries(savedProgress).forEach(([key, value]) => {
+      if (value && key.startsWith('module-complete-')) {
+        checkedSet.add(key);
+      }
+    });
+    
+    setCheckedItems(checkedSet);
   }, [setLocation]);
 
   const handleBack = () => {
@@ -117,13 +130,24 @@ export default function ModuleComplete() {
   };
 
   const toggleCheck = (item: string) => {
+    const fullKey = `module-complete-${item}`;
     const newChecked = new Set(checkedItems);
-    if (newChecked.has(item)) {
-      newChecked.delete(item);
+    let isChecked = false;
+    
+    if (newChecked.has(fullKey)) {
+      newChecked.delete(fullKey);
+      isChecked = false;
     } else {
-      newChecked.add(item);
+      newChecked.add(fullKey);
+      isChecked = true;
     }
+    
     setCheckedItems(newChecked);
+    
+    // Auto-save progress
+    const currentProgress = loadProgress();
+    currentProgress[fullKey] = isChecked;
+    saveProgress(currentProgress);
   };
 
   const currentWeek = weekData[activeWeek - 1];
@@ -239,7 +263,7 @@ export default function ModuleComplete() {
                       variant="ghost"
                       size="sm"
                       onClick={() => toggleCheck(`exercise-${activeWeek}-${index}`)}
-                      className={checkedItems.has(`exercise-${activeWeek}-${index}`) ? "text-secondary" : ""}
+                      className={checkedItems.has(`module-complete-exercise-${activeWeek}-${index}`) ? "text-secondary" : ""}
                     >
                       <CheckCircle className="w-5 h-5" />
                     </Button>
@@ -321,7 +345,7 @@ export default function ModuleComplete() {
                     variant="ghost"
                     size="sm"
                     onClick={() => toggleCheck(`monitoring-${index}`)}
-                    className={`mr-3 ${checkedItems.has(`monitoring-${index}`) ? "text-secondary" : ""}`}
+                    className={`mr-3 ${checkedItems.has(`module-complete-monitoring-${index}`) ? "text-secondary" : ""}`}
                   >
                     <CheckCircle className="w-5 h-5" />
                   </Button>
