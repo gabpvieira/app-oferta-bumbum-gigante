@@ -156,41 +156,41 @@ export default function BonusBody() {
 
       <main className="max-w-4xl mx-auto px-4 py-6 space-y-6">
         {/* Introduction */}
-        <Card className="gradient-bg text-white">
+        <Card className="bg-gradient-to-r from-orange-500 to-red-500 border-orange-300 shadow-lg text-white">
           <CardContent className="p-6">
             <div className="flex items-center mb-4">
-              <Heart className="w-8 h-8 mr-3" />
+              <Heart className="w-8 h-8 mr-3 text-orange-100" />
               <div>
-                <h2 className="text-2xl font-bold">Segredos Para Valorizar Seu Corpo</h2>
-                <p className="text-white/90">Dicas práticas para se sentir linda todos os dias</p>
+                <h2 className="text-2xl font-bold text-white">Segredos Para Valorizar Seu Corpo</h2>
+                <p className="text-orange-100">Dicas práticas para se sentir linda todos os dias</p>
               </div>
             </div>
-            <p className="text-white/90 mb-4">
+            <p className="text-orange-100 mb-4">
               Este bônus é um verdadeiro reforço emocional e visual. Você não está apenas moldando um bumbum – está moldando uma nova identidade.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="bg-white/20 rounded-lg p-3 text-center">
-                <Crown className="w-6 h-6 mx-auto mb-2" />
-                <p className="text-sm font-medium">Autoimagem</p>
+              <div className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg p-3 text-center">
+                <Crown className="w-6 h-6 mx-auto mb-2 text-orange-100" />
+                <p className="text-sm font-medium text-white">Autoimagem</p>
               </div>
-              <div className="bg-white/20 rounded-lg p-3 text-center">
-                <Sparkles className="w-6 h-6 mx-auto mb-2" />
-                <p className="text-sm font-medium">Elegância</p>
+              <div className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg p-3 text-center">
+                <Sparkles className="w-6 h-6 mx-auto mb-2 text-orange-100" />
+                <p className="text-sm font-medium text-white">Elegância</p>
               </div>
-              <div className="bg-white/20 rounded-lg p-3 text-center">
-                <Heart className="w-6 h-6 mx-auto mb-2" />
-                <p className="text-sm font-medium">Autoestima</p>
+              <div className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg p-3 text-center">
+                <Heart className="w-6 h-6 mx-auto mb-2 text-orange-100" />
+                <p className="text-sm font-medium text-white">Autoestima</p>
               </div>
-              <div className="bg-white/20 rounded-lg p-3 text-center">
-                <MessageCircle className="w-6 h-6 mx-auto mb-2" />
-                <p className="text-sm font-medium">Confiança</p>
+              <div className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg p-3 text-center">
+                <MessageCircle className="w-6 h-6 mx-auto mb-2 text-orange-100" />
+                <p className="text-sm font-medium text-white">Confiança</p>
               </div>
             </div>
           </CardContent>
         </Card>
 
         {/* Tab Navigation */}
-        <Card>
+        <Card className="border-orange-300 shadow-lg">
           <CardContent className="p-4">
             <div className="flex flex-wrap gap-2">
               {tabs.map((tab) => {
@@ -200,7 +200,11 @@ export default function BonusBody() {
                     key={tab.id}
                     variant={activeTab === tab.id ? "default" : "outline"}
                     onClick={() => setActiveTab(tab.id)}
-                    className="flex items-center"
+                    className={`flex items-center ${
+                      activeTab === tab.id
+                        ? "bg-gradient-to-r from-orange-500 to-red-500 text-white border-orange-300 hover:from-orange-600 hover:to-red-600"
+                        : "border-orange-300 text-orange-600 hover:bg-orange-50"
+                    }`}
                   >
                     <IconComponent className="w-4 h-4 mr-2" />
                     {tab.label}
@@ -215,24 +219,24 @@ export default function BonusBody() {
         {activeTab === "secrets" && (
           <div className="space-y-6">
             {styleSecrets.map((secret, index) => (
-              <Card key={index} className="border-l-4 border-l-primary">
+              <Card key={index} className="border-l-4 border-l-orange-500 border-orange-300 shadow-lg">
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-foreground mb-2">
+                      <h3 className="text-lg font-semibold text-gray-800 mb-2">
                         {index + 1}º SEGREDO: {secret.title}
                       </h3>
-                      <p className="text-muted-foreground mb-4">{secret.content}</p>
-                      <div className="bg-accent/10 rounded-lg p-3">
-                        <h4 className="font-medium text-foreground mb-2">💬 Ação Prática:</h4>
-                        <p className="text-muted-foreground text-sm">{secret.action}</p>
+                      <p className="text-gray-600 mb-4">{secret.content}</p>
+                      <div className="bg-orange-50 border border-orange-200 rounded-lg p-3">
+                        <h4 className="font-medium text-orange-800 mb-2">💬 Ação Prática:</h4>
+                        <p className="text-orange-700 text-sm">{secret.action}</p>
                       </div>
                     </div>
                     <Button
                       variant="ghost"
                       size="sm"
                       onClick={() => toggleCheck(`secret-${index}`)}
-                      className={`ml-4 ${checkedItems.has(`bonus-body-secret-${index}`) ? "text-secondary" : ""}`}
+                      className={`ml-4 ${checkedItems.has(`bonus-body-secret-${index}`) ? "text-orange-500" : "text-gray-400 hover:text-orange-500"}`}
                     >
                       <CheckCircle className="w-5 h-5" />
                     </Button>
@@ -242,25 +246,25 @@ export default function BonusBody() {
             ))}
 
             {/* Elegance Tips */}
-            <Card>
+            <Card className="border-orange-300 shadow-lg">
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-4 flex items-center">
-                  <Crown className="w-6 h-6 text-accent mr-3" />
+                  <Crown className="w-6 h-6 text-orange-500 mr-3" />
                   ELEGÂNCIA É ENERGIA
                 </h3>
-                <p className="text-muted-foreground mb-4">
+                <p className="text-gray-600 mb-4">
                   Não é sobre quanto você gasta. É sobre como você se porta.
                 </p>
                 <div className="space-y-3">
                   {eleganceTips.map((tip, index) => (
-                    <div key={index} className="flex items-center p-3 bg-muted/50 rounded-lg">
-                      <div className="w-2 h-2 bg-accent rounded-full mr-3" />
-                      <span className="text-foreground flex-1">{tip}</span>
+                    <div key={index} className="flex items-center p-3 bg-orange-50 border border-orange-200 rounded-lg">
+                      <div className="w-2 h-2 bg-orange-500 rounded-full mr-3" />
+                      <span className="text-gray-800 flex-1">{tip}</span>
                       <Button
                         variant="ghost"
                         size="sm"
                         onClick={() => toggleCheck(`elegance-${index}`)}
-                        className={checkedItems.has(`bonus-body-elegance-${index}`) ? "text-secondary" : ""}
+                        className={checkedItems.has(`bonus-body-elegance-${index}`) ? "text-orange-500" : "text-gray-400 hover:text-orange-500"}
                       >
                         <CheckCircle className="w-5 h-5" />
                       </Button>
@@ -271,22 +275,22 @@ export default function BonusBody() {
             </Card>
 
             {/* Photo Tips */}
-            <Card>
+            <Card className="border-orange-300 shadow-lg">
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-4 flex items-center">
-                  <Camera className="w-6 h-6 text-primary mr-3" />
+                  <Camera className="w-6 h-6 text-orange-500 mr-3" />
                   ÂNGULO É TUDO - VALORIZE SEU BUMBUM NAS FOTOS
                 </h3>
                 <div className="space-y-3">
                   {photoTips.map((tip, index) => (
-                    <div key={index} className="flex items-center p-3 bg-primary/10 rounded-lg">
-                      <Camera className="w-4 h-4 text-primary mr-3" />
-                      <span className="text-foreground flex-1">{tip}</span>
+                    <div key={index} className="flex items-center p-3 bg-orange-50 border border-orange-200 rounded-lg">
+                      <Camera className="w-4 h-4 text-orange-500 mr-3" />
+                      <span className="text-gray-800 flex-1">{tip}</span>
                       <Button
                         variant="ghost"
                         size="sm"
                         onClick={() => toggleCheck(`photo-tip-${index}`)}
-                        className={checkedItems.has(`bonus-body-photo-tip-${index}`) ? "text-secondary" : ""}
+                        className={checkedItems.has(`bonus-body-photo-tip-${index}`) ? "text-orange-500" : "text-gray-400 hover:text-orange-500"}
                       >
                         <CheckCircle className="w-5 h-5" />
                       </Button>
@@ -297,21 +301,21 @@ export default function BonusBody() {
             </Card>
 
             {/* Playlist */}
-            <Card>
+            <Card className="border-orange-300 shadow-lg">
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-4 flex items-center">
-                  <Music className="w-6 h-6 text-secondary mr-3" />
+                  <Music className="w-6 h-6 text-orange-500 mr-3" />
                   PLAYLIST GLÚTEA™ SUGERIDA
                 </h3>
                 <div className="space-y-2">
                   {playlist.map((song, index) => (
-                    <div key={index} className="flex items-center p-2 bg-secondary/10 rounded">
-                      <Music className="w-4 h-4 text-secondary mr-3" />
-                      <span className="text-foreground">{song}</span>
+                    <div key={index} className="flex items-center p-2 bg-orange-50 border border-orange-200 rounded">
+                      <Music className="w-4 h-4 text-orange-500 mr-3" />
+                      <span className="text-gray-800">{song}</span>
                     </div>
                   ))}
                 </div>
-                <p className="text-muted-foreground text-sm mt-4">
+                <p className="text-gray-600 text-sm mt-4">
                   Dance, se mova e celebre seu corpo mesmo sem motivo. Isso acelera os resultados.
                 </p>
               </CardContent>
@@ -321,30 +325,30 @@ export default function BonusBody() {
 
         {/* Ritual Tab */}
         {activeTab === "ritual" && (
-          <Card>
+          <Card className="border-orange-300 shadow-lg">
             <CardContent className="p-6">
               <h3 className="text-xl font-semibold mb-4 flex items-center">
-                <Sparkles className="w-6 h-6 text-primary mr-3" />
+                <Sparkles className="w-6 h-6 text-orange-500 mr-3" />
                 Ritual de 10 Minutos Por Dia
               </h3>
-              <p className="text-muted-foreground mb-6">
+              <p className="text-gray-600 mb-6">
                 Você não precisa de horas ou dinheiro para se sentir mais bonita. Você precisa de intenção.
               </p>
               <div className="space-y-4">
                 {dailyRitual.map((item, index) => (
-                  <div key={index} className="flex items-center p-4 border border-border rounded-lg">
-                    <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center mr-4">
+                  <div key={index} className="flex items-center p-4 border border-orange-200 bg-orange-50 rounded-lg">
+                    <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mr-4">
                       <span className="text-white text-sm font-bold">{index + 1}</span>
                     </div>
                     <div className="flex-1">
-                      <p className="text-foreground font-medium">{item.step}</p>
-                      <p className="text-muted-foreground text-sm">{item.time}</p>
+                      <p className="text-gray-800 font-medium">{item.step}</p>
+                      <p className="text-orange-600 text-sm">{item.time}</p>
                     </div>
                     <Button
                       variant="ghost"
                       size="sm"
                       onClick={() => toggleCheck(`ritual-${index}`)}
-                      className={checkedItems.has(`bonus-body-ritual-${index}`) ? "text-secondary" : ""}
+                      className={checkedItems.has(`bonus-body-ritual-${index}`) ? "text-orange-500" : "text-gray-400 hover:text-orange-500"}
                     >
                       <CheckCircle className="w-5 h-5" />
                     </Button>
@@ -362,35 +366,35 @@ export default function BonusBody() {
 
         {/* Affirmations Tab */}
         {activeTab === "affirmations" && (
-          <Card>
-            <CardContent className="p-6">
-              <h3 className="text-xl font-semibold mb-4 flex items-center">
-                <Heart className="w-6 h-6 text-primary mr-3" />
+          <Card className="border-orange-200 shadow-lg shadow-orange-100">
+            <CardContent className="p-6 bg-gradient-to-br from-orange-50 to-red-50">
+              <h3 className="text-xl font-semibold mb-4 flex items-center text-orange-800">
+                <Heart className="w-6 h-6 text-orange-500 mr-3" />
                 Afirmações Que Reprogramam Sua Autoimagem
               </h3>
-              <p className="text-muted-foreground mb-6">
+              <p className="text-orange-700 mb-6">
                 Use essas frases diariamente, especialmente ao se olhar no espelho ou antes do treino:
               </p>
               <div className="space-y-4">
                 {dailyAffirmations.map((affirmation, index) => (
-                  <div key={index} className="flex items-start p-4 bg-secondary/10 rounded-lg">
-                    <Heart className="w-5 h-5 text-secondary mr-3 mt-1" />
+                  <div key={index} className="flex items-start p-4 bg-white/70 backdrop-blur-sm border border-orange-100 rounded-lg">
+                    <Heart className="w-5 h-5 text-orange-500 mr-3 mt-1" />
                     <div className="flex-1">
-                      <p className="text-foreground font-medium">{affirmation}</p>
+                      <p className="text-orange-800 font-medium">{affirmation}</p>
                     </div>
                     <Button
                       variant="ghost"
                       size="sm"
                       onClick={() => toggleCheck(`affirmation-${index}`)}
-                      className={checkedItems.has(`bonus-body-affirmation-${index}`) ? "text-secondary" : ""}
+                      className={checkedItems.has(`bonus-body-affirmation-${index}`) ? "text-orange-500" : "text-gray-400 hover:text-orange-500"}
                     >
                       <CheckCircle className="w-5 h-5" />
                     </Button>
                   </div>
                 ))}
               </div>
-              <div className="bg-primary/10 rounded-lg p-4 mt-6">
-                <p className="text-foreground font-medium">
+              <div className="bg-gradient-to-r from-orange-100 to-red-100 border border-orange-200 rounded-lg p-4 mt-6">
+                <p className="text-orange-800 font-medium">
                   💡 Dica: Grave essas frases com sua própria voz e escute antes de dormir. Sua mente precisa ouvir sua verdade até acreditar.
                 </p>
               </div>
@@ -400,27 +404,27 @@ export default function BonusBody() {
 
         {/* Challenge Tab */}
         {activeTab === "challenge" && (
-          <Card>
-            <CardContent className="p-6">
-              <h3 className="text-xl font-semibold mb-4 flex items-center">
-                <Target className="w-6 h-6 text-primary mr-3" />
+          <Card className="border-orange-200 shadow-lg shadow-orange-100">
+            <CardContent className="p-6 bg-gradient-to-br from-orange-50 to-red-50">
+              <h3 className="text-xl font-semibold mb-4 flex items-center text-orange-800">
+                <Target className="w-6 h-6 text-orange-500 mr-3" />
                 Desafio de 7 Dias - Valorize-se na Prática
               </h3>
               <div className="space-y-4">
                 {weekChallenge.map((day, index) => (
-                  <div key={index} className="flex items-start p-4 border border-border rounded-lg">
-                    <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center mr-4">
+                  <div key={index} className="flex items-start p-4 border border-orange-200 bg-white/70 backdrop-blur-sm rounded-lg">
+                    <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mr-4">
                       <span className="text-white font-bold text-sm">Dia {day.dia}</span>
                     </div>
                     <div className="flex-1">
-                      <p className="text-foreground font-medium">{day.missao}</p>
-                      <p className="text-muted-foreground text-sm">{day.tempo}</p>
+                      <p className="text-orange-800 font-medium">{day.missao}</p>
+                      <p className="text-orange-600 text-sm">{day.tempo}</p>
                     </div>
                     <Button
                       variant="ghost"
                       size="sm"
                       onClick={() => toggleCheck(`challenge-${index}`)}
-                      className={checkedItems.has(`bonus-body-challenge-${index}`) ? "text-secondary" : ""}
+                      className={checkedItems.has(`bonus-body-challenge-${index}`) ? "text-orange-500" : "text-gray-400 hover:text-orange-500"}
                     >
                       <CheckCircle className="w-5 h-5" />
                     </Button>
@@ -432,18 +436,18 @@ export default function BonusBody() {
         )}
 
         {/* Final Message */}
-        <Card className="bg-gradient-to-r from-secondary/10 to-primary/10">
+        <Card className="bg-gradient-to-r from-orange-100 to-red-100 border-orange-200 shadow-lg shadow-orange-100">
           <CardContent className="p-6 text-center">
-            <Crown className="w-12 h-12 text-primary mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-foreground mb-4">
+            <Crown className="w-12 h-12 text-orange-500 mx-auto mb-4" />
+            <h3 className="text-2xl font-bold text-orange-800 mb-4">
               Última Mensagem
             </h3>
             <div className="space-y-3 text-lg">
-              <p className="text-muted-foreground">Você já é linda.</p>
-              <p className="text-muted-foreground">Você está ficando ainda mais poderosa.</p>
-              <p className="text-muted-foreground">E agora, você sabe como fazer o mundo perceber isso também.</p>
+              <p className="text-orange-700">Você já é linda.</p>
+              <p className="text-orange-700">Você está ficando ainda mais poderosa.</p>
+              <p className="text-orange-700">E agora, você sabe como fazer o mundo perceber isso também.</p>
             </div>
-            <div className="bg-primary text-white rounded-lg p-4 mt-6 inline-block">
+            <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg p-4 mt-6 inline-block border border-orange-300 shadow-lg">
               <p className="font-semibold">
                 Seja sua própria referência.<br />
                 O bumbum é o começo.<br />

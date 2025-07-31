@@ -312,34 +312,41 @@ export default function Dashboard() {
           </div>
         </section>
 
-        {/* Achievement Section v2.0 - Modern Design */}
+        {/* Achievement Section v3.0 - Compact Orange Design */}
         <div className="animate-slide-up">
-          <Card className="glass-effect border-0 shadow-xl overflow-hidden bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg">
-            <CardContent className="p-6 sm:p-8">
-              <div className="flex items-center mb-6 sm:mb-8">
-                <div className="w-10 sm:w-12 h-10 sm:h-12 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-2xl flex items-center justify-center mr-3 sm:mr-4 shadow-lg">
-                  <Trophy className="w-5 sm:w-6 h-5 sm:h-6 text-white" />
+          <Card className="border-0 shadow-lg overflow-hidden bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-950/50 dark:to-red-950/50">
+            <CardContent className="p-4 sm:p-6">
+              <div className="flex items-center justify-between mb-4 sm:mb-6">
+                <div className="flex items-center">
+                  <div className="w-8 sm:w-10 h-8 sm:h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center mr-3 shadow-md">
+                    <Trophy className="w-4 sm:w-5 h-4 sm:h-5 text-white" />
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold text-orange-900 dark:text-orange-100">Suas Conquistas</h3>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-foreground">Suas Conquistas 2.0</h3>
+                <div className="text-xs sm:text-sm text-orange-600 dark:text-orange-300 font-medium">
+                  1/4 Desbloqueadas
+                </div>
               </div>
               
-              <div className="grid grid-cols-2 gap-4 sm:gap-6">
-                {/* Achievement 1 - Conquistado (Featured) */}
-                <div className="col-span-1 row-span-2">
-                  <Card className="h-full bg-gradient-to-br from-emerald-500 via-green-500 to-teal-600 text-white shadow-2xl hover:shadow-emerald-500/25 transition-all duration-500 hover:scale-[1.02] border-0 overflow-hidden group">
-                    <CardContent className="p-6 sm:p-8 text-center h-full flex flex-col justify-center relative">
+              {/* Horizontal Scrollable Achievement Cards */}
+              <div className="flex gap-3 sm:gap-4 overflow-x-auto pb-2 scrollbar-hide">
+                {/* Achievement 1 - Conquistado */}
+                <div className="flex-shrink-0 w-32 sm:w-36">
+                  <Card className="h-full bg-gradient-to-br from-orange-500 to-red-500 text-white shadow-lg hover:shadow-orange-500/25 transition-all duration-300 hover:scale-105 border-0 group">
+                    <CardContent className="p-3 sm:p-4 text-center relative overflow-hidden">
                       {/* Background Pattern */}
                       <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
-                      <div className="absolute top-4 right-4 w-20 h-20 bg-white/5 rounded-full -translate-y-10 translate-x-10"></div>
-                      <div className="absolute bottom-4 left-4 w-16 h-16 bg-white/5 rounded-full translate-y-8 -translate-x-8"></div>
+                      <div className="absolute -top-4 -right-4 w-12 h-12 bg-white/10 rounded-full"></div>
                       
                       <div className="relative z-10">
-                        <div className="w-16 sm:w-20 h-16 sm:h-20 bg-white/20 rounded-3xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
-                          <UserPlus className="w-8 sm:w-10 h-8 sm:h-10 text-white" />
+                        <div className="w-10 sm:w-12 h-10 sm:h-12 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-2 sm:mb-3 group-hover:scale-110 transition-transform duration-300">
+                          <UserPlus className="w-5 sm:w-6 h-5 sm:h-6 text-white" />
                         </div>
-                        <div className="space-y-2">
-                          <h4 className="text-lg sm:text-xl font-bold">Conquistado!</h4>
-                          <p className="text-white/90 text-sm sm:text-base font-medium">Primeiro Acesso</p>
+                        <div className="space-y-1">
+                          <div className="w-2 h-2 bg-white rounded-full mx-auto mb-1"></div>
+                          <h4 className="text-xs sm:text-sm font-bold leading-tight">Primeiro</h4>
+                          <p className="text-xs sm:text-sm font-bold leading-tight">Acesso</p>
+                          <div className="text-xs text-white/80 mt-1">✓ Conquistado</div>
                         </div>
                       </div>
                     </CardContent>
@@ -347,249 +354,356 @@ export default function Dashboard() {
                 </div>
 
                 {/* Achievement 2 - Primeira Semana */}
-                <Card className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 hover:shadow-lg transition-all duration-300 hover:scale-[1.02] border border-gray-200 dark:border-gray-700 group">
-                  <CardContent className="p-4 sm:p-6 text-center h-full flex flex-col justify-center">
-                    <div className="w-12 sm:w-14 h-12 sm:h-14 bg-gradient-to-r from-gray-300 to-gray-400 dark:from-gray-600 dark:to-gray-700 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <Lock className="w-6 sm:w-7 h-6 sm:h-7 text-gray-500 dark:text-gray-400" />
-                    </div>
-                    <div className="space-y-1">
-                      <h4 className="font-bold text-sm sm:text-base text-gray-700 dark:text-gray-300">Primeira</h4>
-                      <p className="font-bold text-sm sm:text-base text-gray-700 dark:text-gray-300">Semana</p>
-                      <p className="text-gray-500 dark:text-gray-500 text-xs sm:text-sm">Em breve...</p>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Achievement 3 - 15 Dias */}
-                <Card className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 hover:shadow-lg transition-all duration-300 hover:scale-[1.02] border border-gray-200 dark:border-gray-700 group">
-                  <CardContent className="p-4 sm:p-6 text-center h-full flex flex-col justify-center">
-                    <div className="w-12 sm:w-14 h-12 sm:h-14 bg-gradient-to-r from-gray-300 to-gray-400 dark:from-gray-600 dark:to-gray-700 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <Lock className="w-6 sm:w-7 h-6 sm:h-7 text-gray-500 dark:text-gray-400" />
-                    </div>
-                    <div className="space-y-1">
-                      <h4 className="font-bold text-sm sm:text-base text-gray-700 dark:text-gray-300">15 Dias</h4>
-                      <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm">Meta de meio</p>
-                      <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm">mês</p>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Achievement 4 - 30 Dias */}
-                <div className="col-span-2">
-                  <Card className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 hover:shadow-lg transition-all duration-300 hover:scale-[1.01] border border-gray-200 dark:border-gray-700 group">
-                    <CardContent className="p-4 sm:p-6 flex items-center">
-                      <div className="w-14 sm:w-16 h-14 sm:h-16 bg-gradient-to-r from-gray-300 to-gray-400 dark:from-gray-600 dark:to-gray-700 rounded-2xl flex items-center justify-center mr-4 sm:mr-6 group-hover:scale-110 transition-transform duration-300">
-                        <Crown className="w-7 sm:w-8 h-7 sm:h-8 text-gray-500 dark:text-gray-400" />
+                <div className="flex-shrink-0 w-32 sm:w-36">
+                  <Card className="h-full bg-gradient-to-br from-orange-100 to-orange-200 dark:from-orange-900/30 dark:to-orange-800/30 border border-orange-200 dark:border-orange-700 hover:shadow-md transition-all duration-300 hover:scale-105 group">
+                    <CardContent className="p-3 sm:p-4 text-center relative">
+                      <div className="w-10 sm:w-12 h-10 sm:h-12 bg-gradient-to-r from-orange-300 to-orange-400 dark:from-orange-600 dark:to-orange-700 rounded-xl flex items-center justify-center mx-auto mb-2 sm:mb-3 group-hover:scale-110 transition-transform duration-300">
+                        <Lock className="w-5 sm:w-6 h-5 sm:h-6 text-orange-600 dark:text-orange-300" />
                       </div>
-                      <div className="flex-1 text-left">
-                        <h4 className="font-bold text-base sm:text-lg text-gray-700 dark:text-gray-300 mb-1">30 Dias</h4>
-                        <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">Transformação completa</p>
-                      </div>
-                      <div className="text-right">
-                        <div className="w-6 h-6 bg-gray-300 dark:bg-gray-600 rounded-full flex items-center justify-center">
-                          <Lock className="w-3 h-3 text-gray-500 dark:text-gray-400" />
-                        </div>
+                      <div className="space-y-1">
+                        <div className="w-2 h-2 bg-orange-300 rounded-full mx-auto mb-1"></div>
+                        <h4 className="text-xs sm:text-sm font-bold text-orange-800 dark:text-orange-200 leading-tight">Primeira</h4>
+                        <p className="text-xs sm:text-sm font-bold text-orange-800 dark:text-orange-200 leading-tight">Semana</p>
+                        <div className="text-xs text-orange-600 dark:text-orange-400 mt-1">7 dias</div>
                       </div>
                     </CardContent>
                   </Card>
+                </div>
+
+                {/* Achievement 3 - 15 Dias */}
+                <div className="flex-shrink-0 w-32 sm:w-36">
+                  <Card className="h-full bg-gradient-to-br from-orange-100 to-orange-200 dark:from-orange-900/30 dark:to-orange-800/30 border border-orange-200 dark:border-orange-700 hover:shadow-md transition-all duration-300 hover:scale-105 group">
+                    <CardContent className="p-3 sm:p-4 text-center relative">
+                      <div className="w-10 sm:w-12 h-10 sm:h-12 bg-gradient-to-r from-orange-300 to-orange-400 dark:from-orange-600 dark:to-orange-700 rounded-xl flex items-center justify-center mx-auto mb-2 sm:mb-3 group-hover:scale-110 transition-transform duration-300">
+                        <Lock className="w-5 sm:w-6 h-5 sm:h-6 text-orange-600 dark:text-orange-300" />
+                      </div>
+                      <div className="space-y-1">
+                        <div className="w-2 h-2 bg-orange-300 rounded-full mx-auto mb-1"></div>
+                        <h4 className="text-xs sm:text-sm font-bold text-orange-800 dark:text-orange-200 leading-tight">Meio</h4>
+                        <p className="text-xs sm:text-sm font-bold text-orange-800 dark:text-orange-200 leading-tight">Mês</p>
+                        <div className="text-xs text-orange-600 dark:text-orange-400 mt-1">15 dias</div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                {/* Achievement 4 - 30 Dias */}
+                <div className="flex-shrink-0 w-32 sm:w-36">
+                  <Card className="h-full bg-gradient-to-br from-orange-100 to-orange-200 dark:from-orange-900/30 dark:to-orange-800/30 border border-orange-200 dark:border-orange-700 hover:shadow-md transition-all duration-300 hover:scale-105 group">
+                    <CardContent className="p-3 sm:p-4 text-center relative">
+                      <div className="w-10 sm:w-12 h-10 sm:h-12 bg-gradient-to-r from-orange-300 to-orange-400 dark:from-orange-600 dark:to-orange-700 rounded-xl flex items-center justify-center mx-auto mb-2 sm:mb-3 group-hover:scale-110 transition-transform duration-300">
+                        <Crown className="w-5 sm:w-6 h-5 sm:h-6 text-orange-600 dark:text-orange-300" />
+                      </div>
+                      <div className="space-y-1">
+                        <div className="w-2 h-2 bg-orange-300 rounded-full mx-auto mb-1"></div>
+                        <h4 className="text-xs sm:text-sm font-bold text-orange-800 dark:text-orange-200 leading-tight">Meta</h4>
+                        <p className="text-xs sm:text-sm font-bold text-orange-800 dark:text-orange-200 leading-tight">Final</p>
+                        <div className="text-xs text-orange-600 dark:text-orange-400 mt-1">30 dias</div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+              
+              {/* Progress Indicator */}
+              <div className="mt-4 sm:mt-6">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs sm:text-sm text-orange-700 dark:text-orange-300 font-medium">Progresso das Conquistas</span>
+                  <span className="text-xs sm:text-sm text-orange-600 dark:text-orange-400">25%</span>
+                </div>
+                <div className="w-full bg-orange-200 dark:bg-orange-800/50 rounded-full h-2">
+                  <div className="bg-gradient-to-r from-orange-500 to-red-500 h-2 rounded-full transition-all duration-500" style={{width: '25%'}}></div>
                 </div>
               </div>
             </CardContent>
           </Card>
         </div>
 
-        {/* Premium Modules */}
-        <Card className="animate-slide-up">
-          <CardContent className="p-6">
-            <h3 className="text-xl font-semibold text-foreground mb-2 flex items-center">
-              <Flame className="w-6 h-6 text-primary mr-3" />
-              Conteúdo Premium Projeto Glúteo Gigante™
-            </h3>
-            <p className="text-muted-foreground mb-6">
-              Acesse todo o conteúdo denso da sua oferta original com guias completos e passo a passo!
-            </p>
-            
-            <div className="grid md:grid-cols-3 gap-6">
-              {/* Module 1 - Complete Guide */}
-              <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-primary/20">
-                <CardContent className="p-0">
-                  <div className="gradient-bg h-32 rounded-t-lg flex items-center justify-center relative overflow-hidden">
-                    <div className="absolute inset-0 bg-black/20"></div>
-                    <div className="relative z-10 text-center text-white">
-                      <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                        <Flame className="w-8 h-8" />
-                      </div>
-                      <h4 className="font-bold text-lg">Módulo Completo</h4>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <h4 className="font-semibold text-foreground mb-2">
-                      Projeto Glúteo Gigante™
-                    </h4>
-                    <p className="text-muted-foreground text-sm mb-4">
-                      Um guia passo a passo para conquistar glúteos grandes e definidos em 30 dias.
-                    </p>
-                    <ul className="text-sm text-muted-foreground space-y-1 mb-4">
-                      <li>• Cronograma claro de treinos</li>
-                      <li>• Estratégias de ativação muscular</li>
-                      <li>• Dicas de postura e estilo</li>
-                      <li>• Monitoramento semanal</li>
-                    </ul>
-                    <Button 
-                      className="w-full group-hover:bg-primary group-hover:text-white transition-colors"
-                      onClick={() => setLocation("/module-complete")}
-                    >
-                      Acessar Conteúdo
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Module 2 - Schedule */}
-              <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-secondary/20">
-                <CardContent className="p-0">
-                  <div className="bg-gradient-to-r from-secondary to-secondary/80 h-32 rounded-t-lg flex items-center justify-center relative overflow-hidden">
-                    <div className="absolute inset-0 bg-black/20"></div>
-                    <div className="relative z-10 text-center text-white">
-                      <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                        <i className="fas fa-calendar-alt text-2xl"></i>
-                      </div>
-                      <h4 className="font-bold text-lg">Cronograma</h4>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <h4 className="font-semibold text-foreground mb-2">
-                      Cronograma de Treinos
-                    </h4>
-                    <p className="text-muted-foreground text-sm mb-4">
-                      Um plano detalhado para você seguir diariamente por 30 dias.
-                    </p>
-                    <ul className="text-sm text-muted-foreground space-y-1 mb-4">
-                      <li>• Treinos divididos por semana</li>
-                      <li>• Técnicas de intensificação</li>
-                      <li>• Dicas de execução</li>
-                      <li>• Progressão controlada</li>
-                    </ul>
-                    <Button 
-                      className="w-full group-hover:bg-secondary group-hover:text-white transition-colors"
-                      onClick={() => setLocation("/module-schedule")}
-                    >
-                      Acessar Conteúdo
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Module 3 - Diet */}
-              <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-accent/20">
-                <CardContent className="p-0">
-                  <div className="bg-gradient-to-r from-accent to-accent/80 h-32 rounded-t-lg flex items-center justify-center relative overflow-hidden">
-                    <div className="absolute inset-0 bg-black/20"></div>
-                    <div className="relative z-10 text-center text-white">
-                      <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                        <i className="fas fa-utensils text-2xl"></i>
-                      </div>
-                      <h4 className="font-bold text-lg">Mini-Dieta</h4>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <h4 className="font-semibold text-foreground mb-2">
-                      Mini-Dieta Bônus
-                    </h4>
-                    <p className="text-muted-foreground text-sm mb-4">
-                      Receitas e dicas de alimentação que potencializam seus resultados.
-                    </p>
-                    <ul className="text-sm text-muted-foreground space-y-1 mb-4">
-                      <li>• 30 receitas simples e rápidas</li>
-                      <li>• Princípios da nutrição</li>
-                      <li>• Dicas práticas</li>
-                      <li>• Rotina alimentar</li>
-                    </ul>
-                    <Button 
-                      className="w-full group-hover:bg-accent group-hover:text-white transition-colors"
-                      onClick={() => setLocation("/module-diet")}
-                    >
-                      Acessar Conteúdo
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+        {/* Premium Modules & Bonuses - Compact Orange Design v4.0 */}
+        <Card className="animate-slide-up bg-gradient-to-br from-orange-50 to-red-50 border-orange-200">
+          <CardContent className="p-4 md:p-6">
+            <div className="text-center mb-6">
+              <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent mb-2">
+                🔥 Conteúdo Premium Completo
+              </h3>
+              <p className="text-orange-700/80 text-sm md:text-base">
+                Módulos + Bônus Exclusivos para sua transformação total
+              </p>
             </div>
-          </CardContent>
-        </Card>
-
-        {/* BÔNUS EXCLUSIVOS Section */}
-        <Card className="animate-slide-up">
-          <CardContent className="p-6">
-            <h3 className="text-xl font-semibold text-foreground mb-2 flex items-center">
-              <Crown className="w-6 h-6 text-accent mr-3" />
-              BÔNUS EXCLUSIVOS
-            </h3>
-            <p className="text-muted-foreground mb-6">
-              Conteúdos extras para potencializar sua transformação e elevar sua autoestima!
-            </p>
             
-            <div className="grid md:grid-cols-2 gap-6">
-              <Card className="group hover:shadow-lg transition-all duration-300 border-2 border-transparent hover:border-accent">
-                <CardContent className="p-6">
-                  <div className="flex items-start">
-                    <div className="w-16 h-16 bg-gradient-to-r from-accent to-primary rounded-full flex items-center justify-center mr-4">
-                      <Crown className="w-8 h-8 text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="text-lg font-semibold text-foreground mb-2">
-                        Guia de Postura e Estilo
-                      </h4>
-                      <p className="text-muted-foreground text-sm mb-4">
-                        Como se vestir e se posicionar para realçar seus glúteos com elegância.
-                      </p>
-                      <ul className="text-sm text-muted-foreground space-y-1 mb-4">
-                        <li>• Postura que empina o bumbum</li>
-                        <li>• Roupas que valorizam suas curvas</li>
-                        <li>• Dicas de fotos e poses</li>
-                        <li>• Styling inteligente</li>
-                      </ul>
-                      <Button 
-                        className="w-full group-hover:bg-accent group-hover:text-white transition-colors"
-                        onClick={() => setLocation("/bonus-posture")}
-                      >
-                        Acessar Conteúdo
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+            {/* Horizontal Scroll Container */}
+            <div className="overflow-x-auto scrollbar-hide pb-4">
+              <div className="flex gap-4 min-w-max">
+                
+                {/* Module 1 - Complete Guide */}
+                <div className="w-72 md:w-80 flex-shrink-0">
+                  <Card className="group hover:shadow-xl transition-all duration-300 border-2 border-orange-200 hover:border-orange-400 bg-white">
+                    <CardContent className="p-0">
+                      {/* Cover Image Placeholder */}
+                      <div className="h-40 bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 relative overflow-hidden rounded-t-lg">
+                        <div className="absolute inset-0 bg-black/30"></div>
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="text-center text-white">
+                            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2 backdrop-blur-sm">
+                              <Flame className="w-8 h-8" />
+                            </div>
+                            <h4 className="font-bold text-lg">Módulo Completo</h4>
+                            <p className="text-xs opacity-90">Projeto Glúteo Gigante™</p>
+                          </div>
+                        </div>
+                        {/* Premium Badge */}
+                        <div className="absolute top-3 right-3 bg-orange-600 text-white text-xs px-2 py-1 rounded-full font-semibold">
+                          PREMIUM
+                        </div>
+                      </div>
+                      
+                      <div className="p-4">
+                        <h4 className="font-bold text-gray-800 mb-2 text-lg">
+                          Guia Completo de Transformação
+                        </h4>
+                        <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+                          Passo a passo para glúteos grandes e definidos em 30 dias
+                        </p>
+                        
+                        {/* Compact Checklist */}
+                        <div className="grid grid-cols-2 gap-1 text-xs text-gray-600 mb-4">
+                          <div className="flex items-center"><span className="text-orange-500 mr-1">✓</span>Cronograma</div>
+                          <div className="flex items-center"><span className="text-orange-500 mr-1">✓</span>Ativação</div>
+                          <div className="flex items-center"><span className="text-orange-500 mr-1">✓</span>Postura</div>
+                          <div className="flex items-center"><span className="text-orange-500 mr-1">✓</span>Monitoramento</div>
+                        </div>
+                        
+                        <Button 
+                          className="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-2 text-sm"
+                          onClick={() => setLocation("/module-complete")}
+                        >
+                          Acessar Agora
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
 
-              <Card className="group hover:shadow-lg transition-all duration-300 border-2 border-transparent hover:border-secondary">
-                <CardContent className="p-6">
-                  <div className="flex items-start">
-                    <div className="w-16 h-16 bg-gradient-to-r from-secondary to-accent rounded-full flex items-center justify-center mr-4">
-                      <Heart className="w-8 h-8 text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="text-lg font-semibold text-foreground mb-2">
-                        Segredos Para Valorizar Seu Corpo
-                      </h4>
-                      <p className="text-muted-foreground text-sm mb-4">
-                        Dicas práticas para se sentir linda e confiante todos os dias.
-                      </p>
-                      <ul className="text-sm text-muted-foreground space-y-1 mb-4">
-                        <li>• Construção da autoimagem</li>
-                        <li>• Elegância e presença</li>
-                        <li>• Afirmações poderosas</li>
-                        <li>• Ritual de autoestima</li>
-                      </ul>
-                      <Button 
-                        className="w-full group-hover:bg-secondary group-hover:text-white transition-colors"
-                        onClick={() => setLocation("/bonus-body")}
-                      >
-                        Acessar Conteúdo
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                {/* Module 2 - Schedule */}
+                <div className="w-72 md:w-80 flex-shrink-0">
+                  <Card className="group hover:shadow-xl transition-all duration-300 border-2 border-orange-200 hover:border-orange-400 bg-white">
+                    <CardContent className="p-0">
+                      {/* Cover Image Placeholder */}
+                      <div className="h-40 bg-gradient-to-br from-orange-400 via-amber-500 to-yellow-500 relative overflow-hidden rounded-t-lg">
+                        <div className="absolute inset-0 bg-black/30"></div>
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="text-center text-white">
+                            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2 backdrop-blur-sm">
+                              <i className="fas fa-calendar-alt text-2xl"></i>
+                            </div>
+                            <h4 className="font-bold text-lg">Cronograma</h4>
+                            <p className="text-xs opacity-90">30 Dias Estruturados</p>
+                          </div>
+                        </div>
+                        <div className="absolute top-3 right-3 bg-amber-600 text-white text-xs px-2 py-1 rounded-full font-semibold">
+                          MÓDULO
+                        </div>
+                      </div>
+                      
+                      <div className="p-4">
+                        <h4 className="font-bold text-gray-800 mb-2 text-lg">
+                          Cronograma de Treinos
+                        </h4>
+                        <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+                          Plano detalhado para seguir diariamente por 30 dias
+                        </p>
+                        
+                        <div className="grid grid-cols-2 gap-1 text-xs text-gray-600 mb-4">
+                          <div className="flex items-center"><span className="text-orange-500 mr-1">✓</span>Por semana</div>
+                          <div className="flex items-center"><span className="text-orange-500 mr-1">✓</span>Intensificação</div>
+                          <div className="flex items-center"><span className="text-orange-500 mr-1">✓</span>Execução</div>
+                          <div className="flex items-center"><span className="text-orange-500 mr-1">✓</span>Progressão</div>
+                        </div>
+                        
+                        <Button 
+                          className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-semibold py-2 text-sm"
+                          onClick={() => setLocation("/module-schedule")}
+                        >
+                          Acessar Agora
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                {/* Module 3 - Diet */}
+                <div className="w-72 md:w-80 flex-shrink-0">
+                  <Card className="group hover:shadow-xl transition-all duration-300 border-2 border-orange-200 hover:border-orange-400 bg-white">
+                    <CardContent className="p-0">
+                      {/* Cover Image Placeholder */}
+                      <div className="h-40 bg-gradient-to-br from-red-400 via-pink-500 to-rose-500 relative overflow-hidden rounded-t-lg">
+                        <div className="absolute inset-0 bg-black/30"></div>
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="text-center text-white">
+                            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2 backdrop-blur-sm">
+                              <i className="fas fa-utensils text-2xl"></i>
+                            </div>
+                            <h4 className="font-bold text-lg">Mini-Dieta</h4>
+                            <p className="text-xs opacity-90">Nutrição Estratégica</p>
+                          </div>
+                        </div>
+                        <div className="absolute top-3 right-3 bg-pink-600 text-white text-xs px-2 py-1 rounded-full font-semibold">
+                          BÔNUS
+                        </div>
+                      </div>
+                      
+                      <div className="p-4">
+                        <h4 className="font-bold text-gray-800 mb-2 text-lg">
+                          Mini-Dieta Potencializadora
+                        </h4>
+                        <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+                          Receitas e dicas que potencializam seus resultados
+                        </p>
+                        
+                        <div className="grid grid-cols-2 gap-1 text-xs text-gray-600 mb-4">
+                          <div className="flex items-center"><span className="text-orange-500 mr-1">✓</span>30 receitas</div>
+                          <div className="flex items-center"><span className="text-orange-500 mr-1">✓</span>Nutrição</div>
+                          <div className="flex items-center"><span className="text-orange-500 mr-1">✓</span>Dicas práticas</div>
+                          <div className="flex items-center"><span className="text-orange-500 mr-1">✓</span>Rotina</div>
+                        </div>
+                        
+                        <Button 
+                          className="w-full bg-gradient-to-r from-pink-500 to-red-500 hover:from-pink-600 hover:to-red-600 text-white font-semibold py-2 text-sm"
+                          onClick={() => setLocation("/module-diet")}
+                        >
+                          Acessar Agora
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                {/* Bonus 1 - Posture */}
+                <div className="w-72 md:w-80 flex-shrink-0">
+                  <Card className="group hover:shadow-xl transition-all duration-300 border-2 border-orange-200 hover:border-orange-400 bg-white">
+                    <CardContent className="p-0">
+                      {/* Cover Image Placeholder */}
+                      <div className="h-40 bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 relative overflow-hidden rounded-t-lg">
+                        <div className="absolute inset-0 bg-black/30"></div>
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="text-center text-white">
+                            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2 backdrop-blur-sm">
+                              <Crown className="w-8 h-8" />
+                            </div>
+                            <h4 className="font-bold text-lg">Postura & Estilo</h4>
+                            <p className="text-xs opacity-90">Elegância Total</p>
+                          </div>
+                        </div>
+                        <div className="absolute top-3 right-3 bg-purple-600 text-white text-xs px-2 py-1 rounded-full font-semibold">
+                          BÔNUS
+                        </div>
+                      </div>
+                      
+                      <div className="p-4">
+                        <h4 className="font-bold text-gray-800 mb-2 text-lg">
+                          Guia de Postura e Estilo
+                        </h4>
+                        <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+                          Como realçar seus glúteos com elegância
+                        </p>
+                        
+                        <div className="grid grid-cols-2 gap-1 text-xs text-gray-600 mb-4">
+                          <div className="flex items-center"><span className="text-orange-500 mr-1">✓</span>Postura</div>
+                          <div className="flex items-center"><span className="text-orange-500 mr-1">✓</span>Roupas</div>
+                          <div className="flex items-center"><span className="text-orange-500 mr-1">✓</span>Fotos</div>
+                          <div className="flex items-center"><span className="text-orange-500 mr-1">✓</span>Styling</div>
+                        </div>
+                        
+                        <Button 
+                          className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-2 text-sm"
+                          onClick={() => setLocation("/bonus-posture")}
+                        >
+                          Acessar Agora
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                {/* Bonus 2 - Body Secrets */}
+                <div className="w-72 md:w-80 flex-shrink-0">
+                  <Card className="group hover:shadow-xl transition-all duration-300 border-2 border-orange-200 hover:border-orange-400 bg-white">
+                    <CardContent className="p-0">
+                      {/* Cover Image Placeholder */}
+                      <div className="h-40 bg-gradient-to-br from-rose-500 via-pink-500 to-orange-500 relative overflow-hidden rounded-t-lg">
+                        <div className="absolute inset-0 bg-black/30"></div>
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="text-center text-white">
+                            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2 backdrop-blur-sm">
+                              <Heart className="w-8 h-8" />
+                            </div>
+                            <h4 className="font-bold text-lg">Autoestima</h4>
+                            <p className="text-xs opacity-90">Confiança Total</p>
+                          </div>
+                        </div>
+                        <div className="absolute top-3 right-3 bg-rose-600 text-white text-xs px-2 py-1 rounded-full font-semibold">
+                          BÔNUS
+                        </div>
+                      </div>
+                      
+                      <div className="p-4">
+                        <h4 className="font-bold text-gray-800 mb-2 text-lg">
+                          Segredos Para Valorizar Seu Corpo
+                        </h4>
+                        <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+                          Dicas para se sentir linda e confiante todos os dias
+                        </p>
+                        
+                        <div className="grid grid-cols-2 gap-1 text-xs text-gray-600 mb-4">
+                          <div className="flex items-center"><span className="text-orange-500 mr-1">✓</span>Autoimagem</div>
+                          <div className="flex items-center"><span className="text-orange-500 mr-1">✓</span>Elegância</div>
+                          <div className="flex items-center"><span className="text-orange-500 mr-1">✓</span>Afirmações</div>
+                          <div className="flex items-center"><span className="text-orange-500 mr-1">✓</span>Ritual</div>
+                        </div>
+                        
+                        <Button 
+                          className="w-full bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 text-white font-semibold py-2 text-sm"
+                          onClick={() => setLocation("/bonus-body")}
+                        >
+                          Acessar Agora
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+                
+              </div>
             </div>
+            
+            {/* Progress Indicator */}
+            <div className="flex justify-center mt-4">
+              <div className="flex space-x-2">
+                <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                <div className="w-2 h-2 bg-orange-300 rounded-full"></div>
+                <div className="w-2 h-2 bg-orange-300 rounded-full"></div>
+                <div className="w-2 h-2 bg-orange-300 rounded-full"></div>
+                <div className="w-2 h-2 bg-orange-300 rounded-full"></div>
+              </div>
+            </div>
+            
+            {/* Summary Stats */}
+            <div className="mt-6 bg-gradient-to-r from-orange-100 to-red-100 rounded-lg p-4">
+              <div className="grid grid-cols-3 gap-4 text-center">
+                <div>
+                  <div className="text-2xl font-bold text-orange-600">3</div>
+                  <div className="text-xs text-orange-700">Módulos</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-red-600">2</div>
+                  <div className="text-xs text-red-700">Bônus</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-pink-600">30</div>
+                  <div className="text-xs text-pink-700">Dias</div>
+                </div>
+              </div>
+            </div>
+            
           </CardContent>
         </Card>
 

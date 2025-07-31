@@ -344,54 +344,58 @@ export default function ModuleSchedule() {
 
       <main className="max-w-4xl mx-auto px-4 py-6 space-y-6">
         {/* Introduction */}
-        <Card className="gradient-bg text-white">
+        <Card className="bg-gradient-to-br from-orange-500 via-orange-600 to-red-500 text-white shadow-xl border-0">
           <CardContent className="p-6">
             <div className="flex items-center mb-4">
-              <Calendar className="w-8 h-8 mr-3" />
+              <Calendar className="w-8 h-8 mr-3 text-orange-100" />
               <div>
-                <h2 className="text-2xl font-bold">Cronograma Completo</h2>
-                <p className="text-white/90">Glúteos Maiores, Empinados e Definidos</p>
+                <h2 className="text-2xl font-bold text-white">Cronograma Completo</h2>
+                <p className="text-orange-100">Glúteos Maiores, Empinados e Definidos</p>
               </div>
             </div>
-            <p className="text-white/90 mb-4">
+            <p className="text-orange-100 mb-4">
               Um sistema enxuto de 30 dias com treinos 100% focados nos glúteos, apenas 15 minutos por dia.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="bg-white/20 rounded-lg p-3 text-center">
-                <Clock className="w-6 h-6 mx-auto mb-2" />
-                <p className="text-sm font-medium">15-20 min</p>
+              <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 text-center border border-white/30">
+                <Clock className="w-6 h-6 mx-auto mb-2 text-orange-100" />
+                <p className="text-sm font-medium text-white">15-20 min</p>
               </div>
-              <div className="bg-white/20 rounded-lg p-3 text-center">
-                <Target className="w-6 h-6 mx-auto mb-2" />
-                <p className="text-sm font-medium">Sem Academia</p>
+              <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 text-center border border-white/30">
+                <Target className="w-6 h-6 mx-auto mb-2 text-orange-100" />
+                <p className="text-sm font-medium text-white">Sem Academia</p>
               </div>
-              <div className="bg-white/20 rounded-lg p-3 text-center">
-                <Heart className="w-6 h-6 mx-auto mb-2" />
-                <p className="text-sm font-medium">Casa</p>
+              <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 text-center border border-white/30">
+                <Heart className="w-6 h-6 mx-auto mb-2 text-orange-100" />
+                <p className="text-sm font-medium text-white">Casa</p>
               </div>
-              <div className="bg-white/20 rounded-lg p-3 text-center">
-                <Trophy className="w-6 h-6 mx-auto mb-2" />
-                <p className="text-sm font-medium">Resultados</p>
+              <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 text-center border border-white/30">
+                <Trophy className="w-6 h-6 mx-auto mb-2 text-orange-100" />
+                <p className="text-sm font-medium text-white">Resultados</p>
               </div>
             </div>
           </CardContent>
         </Card>
 
         {/* Week Navigation */}
-        <Card>
+        <Card className="border-orange-200 shadow-lg">
           <CardContent className="p-6">
-            <h3 className="text-xl font-semibold mb-4">Estrutura do Programa (30 Dias)</h3>
+            <h3 className="text-xl font-semibold mb-4 text-gray-800">Estrutura do Programa (30 Dias)</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {scheduleData.map((week) => (
                 <Button
                   key={week.week}
                   variant={activeWeek === week.week ? "default" : "outline"}
                   onClick={() => setActiveWeek(week.week)}
-                  className="h-auto p-4 flex flex-col text-left"
+                  className={`h-auto p-4 flex flex-col text-left transition-all duration-200 ${
+                    activeWeek === week.week 
+                      ? "bg-gradient-to-r from-orange-500 to-red-500 text-white border-0 shadow-lg" 
+                      : "border-orange-300 text-orange-600 hover:bg-orange-50 hover:border-orange-400"
+                  }`}
                 >
                   <span className="text-lg font-bold mb-1">Semana {week.week}</span>
-                  <span className="text-xs mb-2">{week.title}</span>
-                  <span className="text-xs text-muted-foreground">{week.frequency}</span>
+                  <span className="text-xs mb-2 opacity-90">{week.title}</span>
+                  <span className="text-xs opacity-75">{week.frequency}</span>
                 </Button>
               ))}
             </div>
@@ -402,18 +406,18 @@ export default function ModuleSchedule() {
         <Card>
           <CardContent className="p-6">
             <div className="mb-6">
-              <h3 className="text-2xl font-bold text-primary mb-2">
+              <h3 className="text-2xl font-bold text-orange-600 mb-2">
                 Semana {currentWeek.week} - {currentWeek.title}
               </h3>
-              <div className="bg-primary/10 rounded-lg p-4 mb-4">
-                <h4 className="font-semibold text-foreground mb-2 flex items-center">
-                  <Target className="w-5 h-5 text-primary mr-2" />
+              <div className="bg-gradient-to-r from-orange-50 to-red-50 border border-orange-200 rounded-lg p-4 mb-4">
+                <h4 className="font-semibold text-gray-800 mb-2 flex items-center">
+                  <Target className="w-5 h-5 text-orange-500 mr-2" />
                   Objetivo:
                 </h4>
-                <p className="text-muted-foreground">{currentWeek.objective}</p>
+                <p className="text-gray-600">{currentWeek.objective}</p>
               </div>
-              <div className="flex items-center text-muted-foreground">
-                <Clock className="w-4 h-4 mr-2" />
+              <div className="flex items-center text-gray-600">
+                <Clock className="w-4 h-4 mr-2 text-orange-500" />
                 <span>Frequência: {currentWeek.frequency}</span>
               </div>
             </div>
@@ -421,11 +425,11 @@ export default function ModuleSchedule() {
             {/* Days */}
             <div className="space-y-4">
               {currentWeek.days.map((dayData, index) => (
-                <Card key={index} className="border-l-4 border-l-secondary">
+                <Card key={index} className="border-l-4 border-l-orange-500 shadow-md">
                   <CardContent className="p-4">
                     <div className="flex items-center justify-between mb-3">
                       <div>
-                        <h4 className="text-lg font-semibold text-foreground">
+                        <h4 className="text-lg font-semibold text-gray-800">
                           Dia {dayData.day}: {dayData.title}
                         </h4>
                       </div>
@@ -433,7 +437,7 @@ export default function ModuleSchedule() {
                         variant="ghost"
                         size="sm"
                         onClick={() => toggleDayComplete(dayData.day)}
-                        className={completedDays.has(dayData.day) ? "text-secondary" : ""}
+                        className={completedDays.has(dayData.day) ? "text-orange-500" : "text-gray-400 hover:text-orange-500"}
                       >
                         <CheckCircle className="w-5 h-5" />
                       </Button>
@@ -441,11 +445,11 @@ export default function ModuleSchedule() {
                     
                     <div className="space-y-2">
                       {dayData.exercises.map((exercise, exerciseIndex) => (
-                        <div key={exerciseIndex} className="flex items-center p-2 bg-muted/30 rounded">
-                          <div className="w-6 h-6 bg-secondary rounded-full flex items-center justify-center mr-3">
-                            <span className="text-white text-xs">{exerciseIndex + 1}</span>
+                        <div key={exerciseIndex} className="flex items-center p-2 bg-orange-50 rounded border border-orange-100">
+                          <div className="w-6 h-6 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mr-3">
+                            <span className="text-white text-xs font-medium">{exerciseIndex + 1}</span>
                           </div>
-                          <span className="text-foreground">{exercise}</span>
+                          <span className="text-gray-700">{exercise}</span>
                         </div>
                       ))}
                     </div>
@@ -457,20 +461,20 @@ export default function ModuleSchedule() {
         </Card>
 
         {/* Techniques */}
-        <Card>
+        <Card className="border-orange-200 shadow-lg">
           <CardContent className="p-6">
-            <h3 className="text-xl font-semibold mb-4 flex items-center">
-              <Zap className="w-6 h-6 text-accent mr-3" />
+            <h3 className="text-xl font-semibold mb-4 flex items-center text-gray-800">
+              <Zap className="w-6 h-6 text-orange-500 mr-3" />
               Técnicas de Intensificação
             </h3>
-            <p className="text-muted-foreground mb-4">
+            <p className="text-gray-600 mb-4">
               Essas técnicas são usadas nas semanas 2, 3 e 4:
             </p>
             <div className="grid md:grid-cols-2 gap-4">
               {techniques.map((technique, index) => (
-                <div key={index} className="bg-muted/50 rounded-lg p-4">
-                  <h4 className="font-semibold text-foreground mb-2">{technique.name}</h4>
-                  <p className="text-muted-foreground text-sm">{technique.description}</p>
+                <div key={index} className="bg-gradient-to-r from-orange-50 to-red-50 border border-orange-200 rounded-lg p-4">
+                  <h4 className="font-semibold text-gray-800 mb-2">{technique.name}</h4>
+                  <p className="text-gray-600 text-sm">{technique.description}</p>
                 </div>
               ))}
             </div>
@@ -478,10 +482,10 @@ export default function ModuleSchedule() {
         </Card>
 
         {/* Success Tips */}
-        <Card>
+        <Card className="border-orange-200 shadow-lg">
           <CardContent className="p-6">
-            <h3 className="text-xl font-semibold mb-4 flex items-center">
-              <Trophy className="w-6 h-6 text-primary mr-3" />
+            <h3 className="text-xl font-semibold mb-4 flex items-center text-gray-800">
+              <Trophy className="w-6 h-6 text-orange-500 mr-3" />
               Dicas Para Executar com Sucesso
             </h3>
             <div className="grid md:grid-cols-2 gap-4">
@@ -493,9 +497,9 @@ export default function ModuleSchedule() {
                 "Tire fotos semanais e se olhe no espelho com orgulho",
                 "Mesmo sem vontade: FAÇA. Glúteos não crescem com desculpa"
               ].map((tip, index) => (
-                <div key={index} className="flex items-start p-3 bg-accent/10 rounded-lg">
-                  <div className="w-2 h-2 bg-accent rounded-full mt-2 mr-3 flex-shrink-0" />
-                  <p className="text-foreground text-sm">{tip}</p>
+                <div key={index} className="flex items-start p-3 bg-gradient-to-r from-orange-50 to-red-50 border border-orange-200 rounded-lg">
+                  <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0" />
+                  <p className="text-gray-700 text-sm">{tip}</p>
                 </div>
               ))}
             </div>
@@ -503,16 +507,16 @@ export default function ModuleSchedule() {
         </Card>
 
         {/* Final Message */}
-        <Card className="bg-gradient-to-r from-secondary/10 to-primary/10">
+        <Card className="bg-gradient-to-r from-orange-100 to-red-100 border-orange-300 shadow-lg">
           <CardContent className="p-6 text-center">
-            <Flame className="w-12 h-12 text-primary mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-foreground mb-4">
+            <Flame className="w-12 h-12 text-orange-500 mx-auto mb-4" />
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">
               Não Existe Mágica. Existe Método + Execução.
             </h3>
-            <p className="text-muted-foreground mb-4">
+            <p className="text-gray-600 mb-4">
               "Faça o simples, faça com verdade e o corpo responde."
             </p>
-            <div className="inline-flex items-center bg-primary text-white px-6 py-3 rounded-lg">
+            <div className="inline-flex items-center bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-lg shadow-md">
               <Trophy className="w-5 h-5 mr-2" />
               <span className="font-semibold">Você Tem o Plano. Agora Execute!</span>
             </div>

@@ -172,44 +172,44 @@ export default function ModuleComplete() {
 
       <main className="max-w-4xl mx-auto px-4 py-6 space-y-6">
         {/* Introduction */}
-        <Card className="gradient-bg text-white">
+        <Card className="bg-gradient-to-br from-orange-500 via-orange-600 to-red-500 text-white shadow-xl border-0">
           <CardContent className="p-6">
             <div className="flex items-center mb-4">
-              <Flame className="w-8 h-8 mr-3" />
+              <Flame className="w-8 h-8 mr-3 text-orange-100" />
               <div>
-                <h2 className="text-2xl font-bold">Guia Completo</h2>
-                <p className="text-white/90">Glúteos Grandes e Definidos em 30 Dias</p>
+                <h2 className="text-2xl font-bold text-white">Guia Completo</h2>
+                <p className="text-orange-100">Glúteos Grandes e Definidos em 30 Dias</p>
               </div>
             </div>
-            <p className="text-white/90 mb-4">
+            <p className="text-orange-100 mb-4">
               Um plano real, prático e testado para transformar seu corpo em 30 dias — sem academia, sem suplementos, sem enrolação.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-              <div className="bg-white/20 rounded-lg p-3">
-                <Clock className="w-6 h-6 mx-auto mb-2" />
-                <p className="text-sm font-medium">15 min/dia</p>
+              <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 border border-white/30">
+                <Clock className="w-6 h-6 mx-auto mb-2 text-orange-100" />
+                <p className="text-sm font-medium text-white">15 min/dia</p>
               </div>
-              <div className="bg-white/20 rounded-lg p-3">
-                <Target className="w-6 h-6 mx-auto mb-2" />
-                <p className="text-sm font-medium">100% Focado</p>
+              <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 border border-white/30">
+                <Target className="w-6 h-6 mx-auto mb-2 text-orange-100" />
+                <p className="text-sm font-medium text-white">100% Focado</p>
               </div>
-              <div className="bg-white/20 rounded-lg p-3">
-                <Calendar className="w-6 h-6 mx-auto mb-2" />
-                <p className="text-sm font-medium">30 Dias</p>
+              <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 border border-white/30">
+                <Calendar className="w-6 h-6 mx-auto mb-2 text-orange-100" />
+                <p className="text-sm font-medium text-white">30 Dias</p>
               </div>
-              <div className="bg-white/20 rounded-lg p-3">
-                <Trophy className="w-6 h-6 mx-auto mb-2" />
-                <p className="text-sm font-medium">Resultados</p>
+              <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 border border-white/30">
+                <Trophy className="w-6 h-6 mx-auto mb-2 text-orange-100" />
+                <p className="text-sm font-medium text-white">Resultados</p>
               </div>
             </div>
           </CardContent>
         </Card>
 
         {/* Week Navigation */}
-        <Card>
+        <Card className="border-orange-200 shadow-lg">
           <CardContent className="p-6">
-            <h3 className="text-xl font-semibold mb-4 flex items-center">
-              <Calendar className="w-6 h-6 text-primary mr-3" />
+            <h3 className="text-xl font-semibold mb-4 flex items-center text-gray-800">
+              <Calendar className="w-6 h-6 text-orange-500 mr-3" />
               Cronograma Semanal
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -218,10 +218,14 @@ export default function ModuleComplete() {
                   key={week.week}
                   variant={activeWeek === week.week ? "default" : "outline"}
                   onClick={() => setActiveWeek(week.week)}
-                  className="h-auto p-4 flex flex-col"
+                  className={`h-auto p-4 flex flex-col transition-all duration-200 ${
+                    activeWeek === week.week 
+                      ? "bg-gradient-to-r from-orange-500 to-red-500 text-white border-0 shadow-lg" 
+                      : "border-orange-300 text-orange-600 hover:bg-orange-50 hover:border-orange-400"
+                  }`}
                 >
                   <span className="text-lg font-bold">Semana {week.week}</span>
-                  <span className="text-xs">{week.title}</span>
+                  <span className="text-xs opacity-90">{week.title}</span>
                 </Button>
               ))}
             </div>
@@ -232,38 +236,42 @@ export default function ModuleComplete() {
         <Card>
           <CardContent className="p-6">
             <div className="mb-6">
-              <h3 className="text-2xl font-bold text-primary mb-2">
+              <h3 className="text-2xl font-bold text-orange-600 mb-2">
                 Semana {currentWeek.week} - {currentWeek.title}
               </h3>
-              <div className="bg-primary/10 rounded-lg p-4">
-                <h4 className="font-semibold text-foreground mb-2 flex items-center">
-                  <Target className="w-5 h-5 text-primary mr-2" />
+              <div className="bg-gradient-to-r from-orange-50 to-red-50 border border-orange-200 rounded-lg p-4">
+                <h4 className="font-semibold text-gray-800 mb-2 flex items-center">
+                  <Target className="w-5 h-5 text-orange-500 mr-2" />
                   Objetivo da Semana:
                 </h4>
-                <p className="text-muted-foreground">{currentWeek.objective}</p>
+                <p className="text-gray-600">{currentWeek.objective}</p>
               </div>
             </div>
 
             {/* Exercises */}
             <div className="mb-6">
-              <h4 className="text-xl font-semibold mb-4 flex items-center">
-                <Trophy className="w-6 h-6 text-secondary mr-3" />
+              <h4 className="text-xl font-semibold mb-4 flex items-center text-gray-800">
+                <Trophy className="w-6 h-6 text-orange-500 mr-3" />
                 Treino Diário (15 minutos)
               </h4>
               <div className="space-y-3">
                 {currentWeek.exercises.map((exercise, index) => (
-                  <div key={index} className="flex items-center p-3 bg-muted/50 rounded-lg">
-                    <div className="w-8 h-8 bg-secondary rounded-full flex items-center justify-center mr-3">
+                  <div key={index} className="flex items-center p-4 bg-gradient-to-r from-orange-50 to-red-50 border border-orange-200 rounded-lg hover:shadow-md transition-all duration-200">
+                    <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mr-3 shadow-sm">
                       <span className="text-white text-sm font-bold">{index + 1}</span>
                     </div>
                     <div className="flex-1">
-                      <p className="font-medium text-foreground">{exercise}</p>
+                      <p className="font-medium text-gray-800">{exercise}</p>
                     </div>
                     <Button
                       variant="ghost"
                       size="sm"
                       onClick={() => toggleCheck(`exercise-${activeWeek}-${index}`)}
-                      className={checkedItems.has(`module-complete-exercise-${activeWeek}-${index}`) ? "text-secondary" : ""}
+                      className={`transition-colors duration-200 ${
+                        checkedItems.has(`module-complete-exercise-${activeWeek}-${index}`) 
+                          ? "text-orange-500 bg-orange-100" 
+                          : "text-gray-400 hover:text-orange-500 hover:bg-orange-50"
+                      }`}
                     >
                       <CheckCircle className="w-5 h-5" />
                     </Button>
@@ -274,29 +282,29 @@ export default function ModuleComplete() {
 
             {/* Diet */}
             <div className="mb-6">
-              <h4 className="text-xl font-semibold mb-4 flex items-center">
-                <Heart className="w-6 h-6 text-accent mr-3" />
+              <h4 className="text-xl font-semibold mb-4 flex items-center text-gray-800">
+                <Heart className="w-6 h-6 text-red-500 mr-3" />
                 Mini-Dieta da Semana
               </h4>
               <div className="space-y-3">
                 {currentWeek.diet.map((item, index) => (
-                  <div key={index} className="flex items-center p-3 bg-accent/10 rounded-lg">
-                    <div className="w-6 h-6 bg-accent rounded-full flex items-center justify-center mr-3">
-                      <span className="text-white text-xs">✓</span>
+                  <div key={index} className="flex items-center p-4 bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 rounded-lg hover:shadow-md transition-all duration-200">
+                    <div className="w-6 h-6 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mr-3 shadow-sm">
+                      <span className="text-white text-xs font-bold">✓</span>
                     </div>
-                    <p className="text-foreground">{item}</p>
+                    <p className="text-gray-800 font-medium">{item}</p>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Tip */}
-            <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-xl p-4">
-              <h4 className="font-semibold text-foreground mb-2 flex items-center">
-                <Star className="w-5 h-5 text-primary mr-2" />
+            <div className="bg-gradient-to-r from-amber-100 via-orange-100 to-red-100 border border-orange-300 rounded-xl p-6 shadow-lg">
+              <h4 className="font-semibold text-gray-800 mb-3 flex items-center">
+                <Star className="w-5 h-5 text-amber-500 mr-2" />
                 Dica de Ouro:
               </h4>
-              <p className="text-muted-foreground">{currentWeek.tip}</p>
+              <p className="text-gray-700 font-medium leading-relaxed">{currentWeek.tip}</p>
             </div>
           </CardContent>
         </Card>
